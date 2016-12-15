@@ -1,0 +1,370 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gettext Test\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-03 17:47-0600\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Rodrigo Polo <rodrigo.polo@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-KeywordsList: _p:1,2;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"X-Generator: Poedit 1.8.11\n"
+
+# WORD HEADER
+# ###################################################################
+# user without log in
+msgid "Language"
+msgstr "Lingua"
+
+msgid "Languages"
+msgstr "Linguas"
+
+msgid "Spanish"
+msgstr "Spagnolo"
+
+msgid "English"
+msgstr "Inglese"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "Home"
+msgstr "Pag Iniziale"
+
+msgid "Show Projects"
+msgstr "Mostrare progetti"
+
+msgid "Sing in/up"
+msgstr "Registrarsi"
+
+# msgid_plural "You have %d messages"
+# msgstr[0] "Usted tiene %d mensaje"
+# msgstr[1] "Usted tiene %d mensajes"
+# in addition, user like a admin of the application
+msgid "User"
+msgstr "Utilizzatore"
+
+msgid "Users"
+msgstr "Utilizzatori"
+
+msgid "Profile"
+msgstr "Profilo"
+
+msgid "Profiles"
+msgstr "Profili"
+
+msgid "Hubs"
+msgstr "Hubs"
+
+msgid "Hub"
+msgstr "Hub"
+
+msgid "Project"
+msgstr "Progetto"
+
+msgid "Projects"
+msgstr "Progetti"
+
+msgid "Assign Projects"
+msgstr "Assegnare i progetti"
+
+msgid "My Projects"
+msgstr "I miei progetti"
+
+msgid "Signed in as"
+msgstr "Registrato come"
+
+msgid "My profile"
+msgstr "Il mio profilo"
+
+msgid "Sing out"
+msgstr "Disconnessione"
+
+# PALABRA DEL CUERPO BIENVENIDOS
+# ################################################# ##################
+# pagina home.php
+msgid "Welcome to the Project"
+msgstr "Benvenuti al progetto"
+
+msgid "Working on"
+msgstr "Lavorando su"
+
+msgid "Web Platform"
+msgstr "Piattaforma Web"
+
+msgid "Responsible Research and Innovation (RRI)"
+msgstr "Responsabile Ricerca e Innovazione (RRI)"
+
+msgid "H2020 Project"
+msgstr "Progetto H2020"
+
+msgid "Please Login"
+msgstr "Accedete, per favore"
+
+# SHOW PROJECT
+# ####################################################################
+msgid "Show"
+msgstr "Mostrare"
+
+msgid "Search"
+msgstr "Ricerca"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Project Description"
+msgstr "Descrizione del progetto"
+
+msgid "Close"
+msgstr "Chiudere"
+
+msgid "Join"
+msgstr "Unirsi a"
+
+msgid "WebSite"
+msgstr "Sito Web"
+
+msgid "List of projects associated with the Hub user"
+msgstr "Elenco dei progetti associati all'utente Hub"
+
+msgid "List of all projects"
+msgstr "Elenco di tutti i progetti"
+
+msgid "list"
+msgstr "lista di"
+
+msgid "Pages"
+msgstr "Pagine"
+
+msgid "Previous"
+msgstr "Precedente"
+
+msgid "Next"
+msgstr "Il prossimo"
+
+# Sing in/up
+#
+# #######################
+msgid "Login"
+msgstr "Accessoso"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Remember Me"
+msgstr "Ricordati di me"
+
+# REGISTER
+# ###################################################################
+msgid "Full Name"
+msgstr "Nome e cognome"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Email Address"
+msgstr "email"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Confirm Password"
+msgstr "Conferma Password"
+
+msgid "Picture?"
+msgstr "Immagine?"
+
+msgid "Examine"
+msgstr "Esaminare"
+
+msgid "Upload a picture"
+msgstr "Carica una foto"
+
+msgid "Register Now"
+msgstr "Registrati ora"
+
+# LOGIN
+# ###################################################################
+# password y el resto de placeholder aunq esten en register hay que meter el echo
+msgid "email"
+msgstr "email"
+
+msgid "LOG IN"
+msgstr "ACCESSO"
+
+# USER
+#
+# ######################################
+# list, user, username, email, profile, create, user create, status, actions
+msgid "Name"
+msgstr "Nome"
+
+msgid "Create"
+msgstr "Creare"
+
+msgid "User Create"
+msgstr "Crea utente"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Actions"
+msgstr "Azioni"
+
+msgid "Create User"
+msgstr "Crea utente"
+
+msgid "Minimum of 6 characters"
+msgstr "Minimo di 6 caratteri"
+
+msgid "Update"
+msgstr "Aggiornare"
+
+msgid "Clear"
+msgstr "Pulire"
+
+msgid "Back"
+msgstr "Indietro"
+
+# PROFILE
+#
+# #############################
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Create Profile"
+msgstr "Crea un profilo"
+
+# HUBS
+#
+# #############################
+msgid "Place"
+msgstr "Posto"
+
+msgid "Address"
+msgstr "Indirizzo"
+
+msgid "Managers"
+msgstr "Managers"
+
+msgid "Create Hubs"
+msgstr "Creare Hubs"
+
+# PROJECTS
+#
+# #############################
+msgid "Ubication"
+msgstr "Ubicazione"
+
+msgid "Duration"
+msgstr "Durata"
+
+msgid "From"
+msgstr "Da"
+
+msgid "To"
+msgstr "A"
+
+msgid "Pads"
+msgstr "Documenti"
+
+msgid "Keywords"
+msgstr "Parole chiave"
+
+msgid "Palabras Claves"
+msgstr "Parole chiave"
+
+msgid "Create Project"
+msgstr "Creare progetti"
+
+msgid "Number"
+msgstr "Numero"
+
+msgid "A project can only have most ten pads"
+msgstr "Un progetto può avere solo la maggior parte dei 10 documenti"
+
+msgid "Phase"
+msgstr "Fase"
+
+msgid "Keywords of project (separe for comma)"
+msgstr "Parole chiave del progetto (separe per virgola)"
+
+msgid "Image for project"
+msgstr "Immagine per il progetto"
+
+# ASSIGN PROJECTS
+#
+# #############################
+msgid "Assign User to Project"
+msgstr "Assegnare l'utente a Project"
+
+msgid "Name Project"
+msgstr "Progetto"
+
+msgid "Name user"
+msgstr "Utente"
+
+msgid "Email user"
+msgstr "Email"
+
+msgid "Hub Project"
+msgstr "Hub"
+
+msgid "Assign Project"
+msgstr "Assegnare progetto"
+
+msgid "Select Project"
+msgstr "Progetto"
+
+msgid "Select User"
+msgstr "Utente"
+
+# MY PROFILE
+#
+# #############################
+msgid "User Profile"
+msgstr "Profilo utente"
+
+msgid "Edit Profile"
+msgstr "Modifica Profilo"
+
+msgid "Institution"
+msgstr "Istituzione"
+
+msgid "Location"
+msgstr "Ubicazione"
+
+msgid "New Password"
+msgstr "Nuovo Password"
+
+msgid "Change your picture"
+msgstr "Cambia la tua foto"
+
+msgid "Upload a picture about you..."
+msgstr "Carica una foto di te"
+
+# WORD FOOTER
+# ###################################################################
+msgid "About"
+msgstr "Circa"
+
+msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+msgstr "è un progetto di ricerca europeo del programma H2020, sulla ricerca e all'innovazione responsabile"
+
+msgid "More information at"
+msgstr "Maggiori informazioni su"
+
+msgid "Social Links"
+msgstr "Rete Sociale"
+
+msgid "Contact"
+msgstr "Contatto"
+
+msgid "Web Master"
+msgstr "Web Master"

@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: info@phpgang.com <info@phpgang.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en_US\n"
+
+# WORD HEADER
+# ###################################################################
+msgid "Language"
+msgstr "Language"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Show Projects"
+msgstr "Show Projects"
+
+# msgid_plural "You have %d messages"
+# msgstr[0] "Usted tiene %d mensaje"
+# msgstr[1] "Usted tiene %d mensajes"
+msgid "User"
+msgstr "User"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Hubs"
+msgstr "Hubs"
+
+msgid "Projects"
+msgstr "Projects"
+
+msgid "Project"
+msgstr "Project"
+
+msgid "Assign Projects"
+msgstr "Assign Projects"
+
+msgid "My Projects"
+msgstr "My Projects"
+
+msgid "Signed in as"
+msgstr "Signed in as"
+
+msgid "Your profile"
+msgstr "Your profile"
+
+msgid "Sing out"
+msgstr "Sing out"
+
+msgid "Sing in/up"
+msgstr "Sing in/up"
+
+# WORD BODY WELLCOME
+# ###################################################################
+# word 1
+msgid "Welcome to the Project"
+msgstr "Welcome to the Project"
+
+# word 2
+msgid "Working on"
+msgstr "Working on"
+
+msgid "Web Platform"
+msgstr "Web Platform"
+
+msgid "Responsible Research and Innovation (RRI)"
+msgstr "Responsible Research and Innovation (RRI)"
+
+msgid "Please Login"
+msgstr "Please Login"
+
+# SHOW PROJECT
+# ####################################################################
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Project Description"
+msgstr "Descripción del Proyecto"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Join"
+msgstr "Unirse"
+
+msgid "Keywords"
+msgstr "Keywords"
+
+msgid "WebSite"
+msgstr "WebSite"
+
+msgid "List of projects associated with the Hub user"
+msgstr "List of projects associated with the Hub user"
+
+msgid "List of all projects"
+msgstr "List of all projects"
+
+msgid "list"
+msgstr "list"
+
+# WORD FOOTER
+# ###################################################################
+msgid "About"
+msgstr "About"
+
+msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+msgstr "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+
+msgid "More information at"
+msgstr "More information at"
+
+msgid "Social Links"
+msgstr "Social Links"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Web Master"
+msgstr "Web Master"
