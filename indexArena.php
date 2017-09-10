@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS Hubs </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -126,6 +127,7 @@
                                                         echo $combo->getStatus($arena->getSnActive(), true);
                                                         ?>
                                                     </select>
+                                                    <span style="display: none;"><?php echo $arena->getSnActive(); ?></span>
                                                 </td>
                                                 <td>
                                                     <?php if ($arena->getSnActive() == 'S') {

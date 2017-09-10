@@ -1,6 +1,5 @@
 <?php
 require_once "includes/functions.php";
-require_once "includes/combo.php";
 require_once 'includes/gerror.php';
 
     sec_session_start();
@@ -14,7 +13,7 @@ require_once 'includes/gerror.php';
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8">
     <title>FoTRRIS Assigne Project User </title>
     <?php include("section/sincl_html.php"); ?>
     <link href="css/util.css" rel="stylesheet"/>
@@ -70,9 +69,7 @@ require_once 'includes/gerror.php';
                             <label class="control-label col-xs-3">Project:*</label>
                             <div class="col-xs-9">
                                 <select name="id_project" id="id_project" tabindex="6" class="form-control">
-                                    <?php
-                                    echo getComboProjects($mysqli);
-                                    ?>
+                                    <?php echo $combo->getProjects(null, true, true, $_SESSION['type'], $_SESSION['id_user']); ?>
                                 </select>
                             </div>
                         </div>
@@ -80,9 +77,7 @@ require_once 'includes/gerror.php';
                             <label class="control-label col-xs-3">User:*</label>
                             <div class="col-xs-9">
                                 <select name="id_user" id="id_user" tabindex="6" class="form-control">
-                                    <?php
-                                    echo getComboUser($mysqli);
-                                    ?>
+                                    <?php echo $combo->getUser(null, true); ?>
                                 </select>
                             </div>
                         </div>

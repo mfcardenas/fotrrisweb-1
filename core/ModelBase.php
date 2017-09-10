@@ -8,10 +8,10 @@ class ModelBase extends EntityBase{
      * @param $table
      */
     public function __construct($table) {
-        $this->table=(string) $table;
         parent::__construct($table);
-        
-        $this->fluent=$this->getConetar()->startFluent();
+        $this->table=(string) $table;
+        $this->fluent = $this->getConectar()->startFluent();
+        //$this->fluent = ConnectDB::startFluent();
     }
 
     /**
@@ -43,7 +43,7 @@ class ModelBase extends EntityBase{
         }else{
             $resultSet=false;
         }
-        
+        $query->close();
         return $resultSet;
     }
 
@@ -65,6 +65,7 @@ class ModelBase extends EntityBase{
         }else{
             $resultSet=false;
         }
+        $query->close();
         return $resultSet;
     }
     

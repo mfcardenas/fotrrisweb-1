@@ -15,6 +15,7 @@ class GlobalModel extends ModelBase{
     }
 
     public function updateUser($user, $table){
+        $ret = -1;
         $query = $this->fluent()->update($table, array(
             "name" => $user->getName(),
             "username" => $user->getUserName(),
@@ -24,7 +25,40 @@ class GlobalModel extends ModelBase{
             "date_modif" => $this->getToDay(),
             "user_modif" => $user->getUserModif()
         ), $user->getId());
-        return $query->execute();
+        $ret = $query->execute();
+
+        if ($user->getPassword() != null) {
+            echo "Pass Assing -> ".$user->getPassword();
+            $query = $this->fluent()->update($table, array(
+                "password" => $user->getPassword(),
+                "salt" => $user->getSalt(),
+                "date_modif" => $this->getToDay(),
+                "user_modif" => $user->getUserModif()
+            ), $user->getId());
+            $qpass = $query->execute();
+            $ret = $ret + $qpass;
+        }
+        return $ret;
+    }
+
+    /**
+     *
+     * @param $user
+     * @param $table
+     * @return bool|int|PDOStatement
+     */
+    public function updatePassword($user, $table){
+        if ($user->getPassword() != null) {
+            $query = $this->fluent()->update($table, array(
+                "password" => $user->getPassword(),
+                "salt" => $user->getSalt(),
+                "date_modif" => $this->getToDay(),
+                "user_modif" => $user->getUserModif()
+            ), $user->getId());
+
+            $query_pass = $query->execute();
+        }
+        return $query_pass;
     }
 
     public function updateSettingUser($user, $table){
@@ -102,13 +136,19 @@ class GlobalModel extends ModelBase{
         return  $query->execute();
     }
 
+    /**
+     * @param $class
+     * @param bool $am_sw
+     * @param int $id_user
+     * @return array|bool|stdClass
+     */
     public function getListProject($class, $am_sw=false, $id_user=0){
         $am_sw_script = "";
         if ($am_sw) {
             $am_sw_script = " AND pr.id_arena IN ( SELECT DISTINCT am.id_arena FROM arena_manager AS am WHERE am.id_user = ". $id_user ." ) ";
         }
         $query = "SELECT ".
-            "pr.id ".
+            "  pr.id ".
             ", pr.name ".
             ", pr.id_arena ".
             ", ar.name as name_arena ".
@@ -117,6 +157,8 @@ class GlobalModel extends ModelBase{
             ", pr.date_from  ".
             ", pr.date_to ".
             ", pr.sn_active ".
+            ", pr.sn_abstract ".
+            ", pr.sn_repository ".
             ", pr.num_pad ".
             ", nk.num_keywords ".
             ", nu.num_user ".
@@ -137,6 +179,10 @@ class GlobalModel extends ModelBase{
         return $projects;
     }
 
+    /**
+     * @param $class
+     * @return array|bool|stdClass
+     */
     public function getListArenas($class){
         $query =
             "SELECT ".
@@ -165,7 +211,23 @@ class GlobalModel extends ModelBase{
         return $arenas;
     }
 
-    public function getAssignProjectManager($id_user, $class){
+    public function getAssignProject($id_user, $class, $sw = false) {
+        $query = "SELECT apu.*, pr.name as name_project, ar.name as name_hub, usr.name as name_user, usr.email " .
+            " FROM assigned_project_user AS apu, project AS pr, arena AS ar, user AS usr WHERE ".
+            " apu.id_project = pr.id AND apu.id_user = usr.id AND pr.id_arena = ar.id AND pr.sn_active = 'S' ";
+
+        if ($sw){
+            $query = $query . "AND pr.id_arena IN ( SELECT DISTINCT am.id_arena FROM arena_manager AS am WHERE am.id_user = ".$id_user." ) ;";
+        }
+        return $this->ejecutarSqlCl($query, $class );
+    }
+
+    /**
+     * @param $id_user
+     * @param $class
+     * @return array|bool|stdClass
+     */
+    public function __getAssignProjectManager($id_user, $class){
         $query = "SELECT ".
                  "    apu.* ".
                  "  FROM ".
@@ -173,7 +235,7 @@ class GlobalModel extends ModelBase{
                  "     project AS pr, ".
                  "     arena AS ar ".
                  "   WHERE ".
-                 "     apu.id_project = pr.id AND pr.id_arena = ar.id AND pr.sn_active = 'S' AND pr.id_arena IN( ".
+                 "     apu.id_project = pr.id AND pr.id_arena = ar.id AND pr.sn_active = 'S' AND pr.id_arena IN ( ".
                  "     SELECT DISTINCT ".
                  "      am.id_arena ".
                  "     FROM ".
@@ -184,6 +246,11 @@ class GlobalModel extends ModelBase{
         return $this->ejecutarSqlCl($query, $class );
     }
 
+    /**
+     * @param $id_project
+     * @param $class
+     * @return array|bool|stdClass
+     */
     public function getKeywordsProj($id_project, $class){
         $query = "SELECT ".
                     " ke.id, ".
@@ -196,11 +263,36 @@ class GlobalModel extends ModelBase{
         return $this->ejecutarSqlCl($query, $class );
     }
 
+    /**
+     * getUsersProject
+     * @param $id_project
+     * @param $class
+     * @return array|bool|object|stdClass
+     */
+    public function getUsersProject($id_project){
+        $query = "select COUNT(ap.id_user) as num " .
+            " from assigned_project_user ap, project pr ".
+            " WHERE ".
+            " pr.id = ap.id_project AND ".
+            " pr.sn_active = 'S' AND ".
+            " ap.sn_active = 'S' AND ".
+            " pr.id = " . $id_project;
+
+        return $this->ejecutarSql($query);
+    }
+
+    /**
+     * @return string
+     */
     public function getToDay(){
         $today = getdate();
         return $value = $today["year"]."-".$today["mon"]."-".$today["mday"];
     }
-    
+
+    /**
+     * @param null $fecha
+     * @return null|string
+     */
     public function getDateFormatDB($fecha=null){
         if($fecha == null || $fecha == ''){
             return null;
@@ -211,6 +303,10 @@ class GlobalModel extends ModelBase{
         }
     }
 
+    /**
+     * @param $id_project
+     * @return string
+     */
     public function setImageProject($id_project){
         echo "setImageProject";
         $upfile = "true";
@@ -248,6 +344,12 @@ class GlobalModel extends ModelBase{
         return $file_name;
     }
 
+    /**
+     * @param $project
+     * @param $pads
+     * @param $keywords
+     * @return string
+     */
     public function createProject($project, $pads, $keywords){
         $sw_pad = false;
         $id_project = 0;
@@ -264,6 +366,8 @@ class GlobalModel extends ModelBase{
                 "date_from" => $this->getDateFormatDB($project->getDatefrom()),
                 "date_to" => $this->getDateFormatDB($project->getDateTo()),
                 "sn_active" => $project->getSnActive(),
+                "sn_abstract" => $project->getSnAbstract(),
+                "sn_repository" => $project->getSnRepository(),
                 "date_create" => $this->getToDay(),
                 "user_create" => $project->getUserCreate(),
                 "num_pad" => $project->getNumPad(),
@@ -338,12 +442,13 @@ class GlobalModel extends ModelBase{
                 foreach ($pads as $pad){
                     $query = $this->fluent()->insertInto($tpad, array(
                         "id" => $pad->getId(),
-                        "pad_name" => $this->getPadName($project, $pad->getId()),
+                        "pad_name" => $this->getPadName($project, $pad->getId(), $pad->getType()),
                         "filename_config" => $pad->getFilenameConfig(),
                         "description" => $pad->getDescription(),
                         "user_create" => $pad->getUserCreate(),
                         "sn_active" => $pad->getSnActive(),
                         "pad_name_view" => $pad->getPadNameView(),
+                        "type" => $pad->getType(),
                         "id_project" => $id_project,
                         "date_create" => $this->getToDay()
                     ));
@@ -383,6 +488,8 @@ class GlobalModel extends ModelBase{
                 "date_from" => $this->getDateFormatDB($project->getDatefrom()),
                 "date_to" => $this->getDateFormatDB($project->getDateTo()),
                 "sn_active" => $project->getSnActive(),
+                "sn_abstract" => $project->getSnAbstract(),
+                "sn_repository" => $project->getSnRepository(),
                 "date_modif" => $this->getToDay(),
                 "user_modif" => $project->getUserCreate(),
                 "num_pad" => $project->getNumPad(),
@@ -465,7 +572,7 @@ class GlobalModel extends ModelBase{
                             $stmt->execute();   // Execute the prepared query.
                             $stmt->store_result();
                             // UPDATE PAD
-                            if ($stmt->num_rows == 1) {
+                            if ($stmt->num_rows >= 1) {
                                 $query4 = $this->fluent()->update($tpad, array(
                                     "filename_config" => $pad->getFilenameConfig(),
                                     "description" => $pad->getDescription(),
@@ -480,26 +587,27 @@ class GlobalModel extends ModelBase{
                                 // echo "-----------> " . $query4->getQuery() . "<br/>";
                                 // echo "-----------> " . implode(" ",$query4->getParameters()) . "<br/>";
                                 $res_keyd = $query4->execute();
-
+                                echo "UPDATE: ".$query4->getQuery(true) . "\n\n";
                                 if ($res_keyd == -1) {
                                     $key = "730";
                                 }
                             }else{
                                 $query5 = $this->fluent()->insertInto($tpad, array(
                                     "id" => $pad->getId(),
-                                    "pad_name" => $this->getPadName($project, $pad->getId()),
+                                    "pad_name" => $this->getPadName($project, $pad->getId(), $pad->getType()),
                                     "filename_config" => $pad->getFilenameConfig(),
                                     "description" => $pad->getDescription(),
                                     "user_create" => $pad->getUserCreate(),
                                     "sn_active" => $pad->getSnActive(),
                                     "pad_name_view" => $pad->getPadNameView(),
+                                    "type" => $pad->getType(),
                                     "id_project" => $id_project,
                                     "date_create" => $this->getToDay()
                                 ));
                                 // echo "-----------> " . $query5->getQuery() . "<br/>";
                                 // echo "-----------> " . implode(" ",$query5->getParameters()) . "<br/>";
                                 $res_pad = $query5->execute();
-
+                                echo "INSERT: ".$query5->getQuery(true) . "\n\n";
                                 if ($res_pad == -1) {
                                     $key="730";
                                 }
@@ -519,11 +627,15 @@ class GlobalModel extends ModelBase{
 
     }
 
-    private function getPadName($project, $num){
+    private function getPadName($project, $num, $type){
         $pad_name = "PD";
         $pad_name .= str_pad($project->getId(), 4, "0", STR_PAD_LEFT);
         $pad_name .= str_pad($project->getIdArena(), 4, "0", STR_PAD_LEFT);
-        $pad_name .= "PADA" . str_pad($num, 6, "0", STR_PAD_LEFT);
+        if ($type == 'CON'){         #PAD con CONtenido
+            $pad_name .= "PADA" . str_pad($num, 6, "0", STR_PAD_LEFT);
+        } else {
+            $pad_name .= "PADA" . str_pad($type, 6, "0", STR_PAD_LEFT);
+        }
         return $pad_name;
     }
 
@@ -532,6 +644,24 @@ class GlobalModel extends ModelBase{
             "name" => "-",
             "place" => "-"
         ));
+    }
+
+    /**
+     * Function get PAD Abstract.
+     * @param $id
+     */
+    public function getPadAbsProject($id){
+        $pad = '';
+        if ($stmt = $this->db()->prepare("SELECT pad_name FROM group_pad WHERE id_project = ? and type = 'ABS' LIMIT 1")){
+            $stmt->bind_param('s', $id);
+            $stmt->execute();
+            $stmt->store_result();
+            if ($stmt->num_rows == 1) {
+                $stmt->bind_result($pad);
+                $stmt->fetch();
+            }
+        }
+        return $pad;
     }
 
 }

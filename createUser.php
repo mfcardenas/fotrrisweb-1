@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS User </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -41,7 +42,7 @@
                             <div class="col-md-12">
                                 <?php
                                 foreach ($keys as $key){
-                                    echo getNotification($key, null )."<br/>";
+                                    echo getNotification($key["cod"], $key["type"])."<br/>";
                                 }
                                 ?>
                             </div>
@@ -70,22 +71,22 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <?php if ($action == 'Create') { ?>
+                                <!--?php if ($action == 'Create') { ?-->
                                     <div class="form-group">
-                                        <label for="password" class="control-label col-xs-3"><?php echo _("Password"); ?>:*</label>
+                                        <label for="password" class="control-label col-xs-3"><?php echo _("New Password"); ?>:</label>
                                         <div class="col-xs-9">
-                                            <input required data-minlength="6" type="password" class="form-control" placeholder="<?php echo _("Password"); ?>" id="password" name="password" value="<?php echo $user->getPassword(); ?>" tabindex="4"/>
-                                            <div class="help-block"><?php echo _("Minimum of 6 characters"); ?></div>
+                                            <input data-minlength="6" type="password" class="form-control" placeholder="<?php echo _("Passwords must be at least 6 characters long"); ?>" id="password" name="password" value="<?php echo $user->getPassword(); ?>" tabindex="4"/>
+                                            <div class="help-block"><?php echo _("Passwords must be at least 6 characters long..."); ?></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="confirmpwd" class="control-label col-xs-3"><?php echo _("Confirm Password"); ?>:*</label>
+                                        <label for="confirmpwd" class="control-label col-xs-3"><?php echo _("Confirm Password"); ?>:</label>
                                         <div class="col-xs-9">
-                                            <input required type="password" name="confirmpwd" id="confirmpwd" class="form-control" placeholder="<?php echo _("Confirm Password"); ?>" tabindex="5" value="<?php echo $user->getPassword(); ?>" data-match="#password" data-match-error="Whoops, these don't match"/>
+                                            <input type="password" name="confirmpwd" id="confirmpwd" class="form-control" placeholder="<?php echo _("Confirm Password"); ?>" tabindex="5" value="<?php echo $user->getPassword(); ?>" data-match="#password" data-match-error="Whoops, these don't match"/>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <!--?php } ?-->
                                 <div class="form-group">
                                     <label for="id_perfil" class="control-label col-xs-3"><?php echo _("Profile"); ?>:*</label>
                                     <div class="col-xs-9">

@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Language: es_ES\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 # WORD HEADER
 # ###################################################################
@@ -34,13 +34,19 @@ msgstr "Inglés"
 msgid "Italian"
 msgstr "Italiano"
 
+msgid "Hungarian"
+msgstr "Húngaro"
+
+msgid "German"
+msgstr "Alemán"
+
 msgid "Home"
 msgstr "Inicio"
 
 msgid "Show Projects"
 msgstr "Mostrar proyectos"
 
-msgid "Sing in/up"
+msgid "Login/Register"
 msgstr "Iniciar Sesión/Registrarse"
 
 # msgid_plural "You have %d messages"
@@ -77,13 +83,13 @@ msgstr "Asignar Proyectos"
 msgid "My Projects"
 msgstr "Mis proyectos"
 
-msgid "Signed in as"
+msgid "Login as"
 msgstr "Conectado como"
 
 msgid "My profile"
 msgstr "Mi perfil"
 
-msgid "Sing out"
+msgid "Logout"
 msgstr "Cerrar Sesión"
 
 # PALABRA DEL CUERPO BIENVENIDOS
@@ -106,6 +112,27 @@ msgstr "Projecto H2020"
 
 msgid "Please Login"
 msgstr "Por favor, Inicie Sesión"
+
+# WORD BODY WELLCOME  NEW LITERAL
+# ###################################################################
+# word 1
+msgid "Welcome to the FoTRRIS web Platform"
+msgstr "Welcome to the FoTRRIS web Platform"
+
+msgid "Platform for co-creation of Project ideas"
+msgstr "Platform for co-creation of RRI Project ideas"
+
+msgid "Fostering Transition into Responsible Research and Innovation"
+msgstr "Fostering Transition into Responsible Research and Innovation"
+
+msgid "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+msgstr "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+
+msgid "Usage Guidelines"
+msgstr "Usage Guidelines"
+
+msgid "General Information of web Platform"
+msgstr "General Information of web Platform"
 
 # SHOW PROJECT
 # ####################################################################
@@ -189,6 +216,12 @@ msgstr "Cargar una imagen"
 msgid "Register Now"
 msgstr "Registrar Ahora"
 
+msgid "Passwords must be at least 6 characters long"
+msgstr "La contraseña debe tener al menos 6 caracteres"
+
+msgid "Passwords must be at least 6 characters"
+msgstr "La contraseña debe tener al menos 6 caracteres, al menos un número, una letra en miníscula y una letra en mayúscula"
+
 # LOGIN
 # ###################################################################
 # password y el resto de placeholder aunq esten en register hay que meter el echo
@@ -205,10 +238,10 @@ msgstr "ACCEDER"
 msgid "Name"
 msgstr "Nombre"
 
-msgid "Create"
+msgid "Created"
 msgstr "Creación"
 
-msgid "User Create"
+msgid "Created By"
 msgstr "Creado por"
 
 msgid "Status"
@@ -283,8 +316,8 @@ msgstr "Crear Projecto"
 msgid "Number"
 msgstr "Número"
 
-msgid "A project can only have most ten pads"
-msgstr "Un proyecto puede sólo tener máximo 10 documentos"
+msgid "A project can only have most 15 pads"
+msgstr "Un proyecto puede sólo tener máximo 15 documentos"
 
 msgid "Phase"
 msgstr "Fase"
@@ -321,6 +354,9 @@ msgstr "Proyecto"
 
 msgid "Select User"
 msgstr "Usuario"
+
+msgid "Your request is send to the project leader"
+msgstr "Gracias por tu interés en este proyecto. Tu petición ha sido enviada para ser aprobada el coordinador del proyecto"
 
 # MY PROFILE
 #
@@ -365,3 +401,30 @@ msgstr "Contacto"
 
 msgid "Web Master"
 msgstr "Web Master"
+
+msgid "Forgot my password"
+msgstr "Olvidé mi contraseña"
+
+msgid "A temporary password will be established for your account in FoTRRIS"
+msgstr "Se establecerá una contraseña temporal para su cuenta en FoTRRIS y esta le será enviada a su buzón de correo electrónico. ¿Desea continuar?"
+
+msgid "Enter your email in the username field"
+msgstr "Indique su cuenta de correo en el campo email"
+
+msgid "Active users"
+msgstr "Usuarios activos"
+
+msgid "What's My Password?"
+msgstr "¿Cuál es mi contraseña?"
+
+msgid "If you have forgotten your password you can reset it here."
+msgstr "Si ha olvidado su contraseña, puede restablecerla aquí."
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Send New Password"
+msgstr "Enviar nueva password"
+
+msgid "Your request is send to the projectleader"
+msgstr "Your request is send to the projectleader"

@@ -34,9 +34,7 @@ function sec_session_start() {
 
 function login($email, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, id_perfil 
-				  FROM user 
-                                  WHERE email = ? LIMIT 1")) {
+    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, id_perfil FROM user WHERE email = ? LIMIT 1")) {
         $stmt->bind_param('s', $email);  // Bind "$email" to parameter.
         $stmt->execute();    // Execute the prepared query.
         $stmt->store_result();
@@ -44,19 +42,20 @@ function login($email, $password, $mysqli) {
         // get variables from result.
         $stmt->bind_result($user_id, $username, $db_password, $salt, $id_perfil);
         $stmt->fetch();
-
         // hash the password with the unique salt.
         $password = hash('sha512', $password . $salt);
-        if ($stmt->num_rows == 1) {
+
+        if ($stmt->num_rows >= 1) {
             // If the user exists we check if the account is locked
             // from too many login attempts 
             if (checkbrute($user_id, $mysqli) == true) {
                 // Account is locked 
-                // Send an email to user saying their account is locked 
+                // Send an email to user saying their account is locked
                 return false;
             } else {
                 // Check if the password in the database matches 
                 // the password the user submitted.
+
                 if ($db_password == $password) {
                     // Password is correct!
                     // Get the user-agent string of the user.
@@ -90,7 +89,7 @@ function login($email, $password, $mysqli) {
                 }
             }
         } else {
-            // No user exists. 
+            // No user exists.
             return false;
         }
     } else {
@@ -224,29 +223,49 @@ function getPadHtmlUserProject($mysqli, $id_project){
     $tab = array();
     $sw = true;
      
-    if ($scriptPad = $mysqli->prepare("SELECT pad_name, pad_name_view, description, filename_config FROM group_pad WHERE sn_active = 'S' and id_project = ? order by pad_name")) {
+    if ($scriptPad = $mysqli->prepare("SELECT pad_name, pad_name_view, description, filename_config, type FROM group_pad WHERE sn_active = 'S' and id_project = ? order by pad_name")) {
         
         $scriptPad->bind_param('s', $id_project);  // Bind "$id_project" to parameter.
         $scriptPad->execute();    // Execute the prepared query.
         
-        $scriptPad->bind_result($pad_name, $pad_name_view, $description, $filename_config);
+        $scriptPad->bind_result($pad_name, $pad_name_view, $description, $filename_config, $type);
         $classActive = "active";
         
         $aUrl = curHost();
        
         while ($scriptPad->fetch()) {
-            //create script load pad
-            $script[] = "$('#tab_link_".$pad_name."').click(function() {".
-                "$('#div".$pad_name."').pad(".
-                "{'padId':'".$pad_name."', 'plugins':{'pageview':'true'}, 'showControls':'true', 'showChat':'true', 'showLineNumbers':'true', 'userName':'".$_SESSION['username']."', 'width':'100', ". 
-                "'height':600, 'border':1, 'borderStyle':'solid', 'userColor':'true', 'host':'http://ingenias.fdi.ucm.es:9001', 'baseUrl':'/p/', 'useMonospaceFont' :". "'false', 'noColors': 'false', 'alwaysShowChat':'true'});".
-                "});";
-            
             //create tab link top
-            $tab[] = "<li class='".$classActive."'><a id='tab_link_".$pad_name."' href='#tab".$pad_name."'>".$pad_name_view."</a></li>";
+            $color = "";
+            if ($type == PAD_ABS){
+                $color = "bck bck_b";
+            }
+            if ($type == PAD_REP){
+                $color = "bck bck_g";
+            }
+            $tab[] = "<li class='".$classActive." ". $color . "'><a id='tab_link_".$pad_name."' href='#tab".$pad_name."'>".$pad_name_view."</a></li>";
             
             //create div html content pad
-            $section[] = "<section id='tab".$pad_name."' class='tab-content ".$classActive."'><div><div id='div".$pad_name."'></div></div></section>";
+            if ($type == PAD_REP){
+                $script[] = "$('#tab_link_".$pad_name."').click(function() {" .
+                    "$('#repository_iframe').css('display', 'block');" .
+                    "});";
+                $locale = getenv("LANGUAGE");
+                $section[] = "<section id='tab".$pad_name."' class='tab-content ".$classActive."'><div>" .
+                    " <div id='repository_iframe' class='embed-container' style='display: none;'><iframe id='repiframe' height='400' width='900' " .
+                    "src='repository.php?lang=" . $locale . "&id=".$id_project."'>" .
+                    "<p>Your browser does not support iframes.</p></iframe></div></div>" .
+                    "</section>";
+            }else{
+                //create script load pad
+                $script[] = "$('#tab_link_".$pad_name."').click(function() {".
+                    "$('#div".$pad_name."').pad(".
+                    "{'padId':'".$pad_name."', 'plugins':{'pageview':'true'}, 'showControls':'true', 'showChat':'true', 'showLineNumbers':'true', 'userName':'".$_SESSION['username']."', 'width':'100', ".
+                    "'height':600, 'border':1, 'borderStyle':'solid', 'userColor':'true', 'host':'". URL_SERVER_PAD."', 'baseUrl':'/p/', 'useMonospaceFont' :". "'false', 'noColors': 'false', 'alwaysShowChat':'true'});".
+                    "$('#repository_iframe').css('display', 'none');" .
+                    "});";
+
+                $section[] = "<section id='tab".$pad_name."' class='tab-content ".$classActive."'><div><div id='div".$pad_name."'></div></div></section>";
+            }
             
             if($sw){
                 $script[] = "$('#tab_link_".$pad_name."').click();";
@@ -393,6 +412,7 @@ function get_parameter_url($vars, $url="index.php?"){
     $querystring = http_build_query($vars);
     return $url . $querystring;
 }
+
 
 
 

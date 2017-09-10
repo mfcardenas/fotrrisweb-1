@@ -162,7 +162,7 @@ class Perfil extends EntityBase {
                 $key = "908";
             }
         } catch (Exception $e) {
-            header('Location: ../error.php?err=' . $e->getMessage() . "\n");
+            header('Location: /error.php?err=' . $e->getMessage() . "\n");
         }
         return $key;
     }

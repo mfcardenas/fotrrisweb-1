@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS Assign User to Project </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -101,10 +102,10 @@
                                                 <?php echo _("To"); ?>
                                             </th>
                                             <th class="dynatable-head" data-dynatable-column="date_create">
-                                                <?php echo _("Create"); ?>
+                                                <?php echo _("Created"); ?>
                                             </th>
                                             <th class="dynatable-head" data-dynatable-column="user_create">
-                                                <?php echo _("User Create"); ?>
+                                                <?php echo _("Created By"); ?>
                                             </th>
                                             <th class="dynatable-head" style="text-align: center;" data-dynatable-column="status">
                                                 <?php echo _("Status"); ?>
@@ -119,16 +120,16 @@
                                         foreach($allassign as $assign) {?>
                                             <tr>
                                                 <td style='text-align: left;'>
-                                                    <?php echo $combo->getDescProject($assign->getIdProject()); ?>
+                                                    <?php echo $assign->getNameProject(); ?>
                                                 </td>
                                                 <td style='text-align: left;'>
-                                                    <?php echo $combo->getNameUser($assign->getIdUser()); ?>
+                                                    <?php echo $assign->getNameUser(); ?>
                                                 </td>
                                                 <td style='text-align: left;'>
-                                                    <?php echo $combo->getEmailUser($assign->getIdUser()); ?>
+                                                    <?php echo $assign->getEmail(); ?>
                                                 </td>
                                                 <td style='text-align: left;'>
-                                                    <?php echo $combo->getArenaProject($assign->getIdProject()); ?>
+                                                    <?php echo $assign->getNameHub(); ?>
                                                 </td>
                                                 <td style='text-align: left;'>
                                                     <?php echo date(FORMAT_DATE, strtotime($assign->getDateFrom())); ?>
@@ -146,6 +147,7 @@
                                                         echo $combo->getStatus($assign->getSnActive(), true);
                                                         ?>
                                                     </select>
+                                                    <span style="display: none;"><?php echo $assign->getSnActive(); ?></span>
                                                 </td>
                                                 <td>
                                                     <?php if ($assign->getSnActive() == 'S') {

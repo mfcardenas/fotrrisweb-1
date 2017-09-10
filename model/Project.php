@@ -26,12 +26,18 @@ class Project extends EntityBase{
     private $date_modif;
     private $keywords;
 
+    private $sn_abstract;
+    private $sn_repository;
+
     private $images;
     private $webSite;
 
     private $num_pad;
     private $num_keywords;
     private $num_user;
+
+    private $name_pad_0;
+    private $desc_pad_0;
 
     private $name_pad_1;
     private $desc_pad_1;
@@ -62,6 +68,21 @@ class Project extends EntityBase{
 
     private $name_pad_10;
     private $desc_pad_10;
+
+    private $name_pad_11;
+    private $desc_pad_11;
+
+    private $name_pad_12;
+    private $desc_pad_12;
+
+    private $name_pad_13;
+    private $desc_pad_13;
+
+    private $name_pad_14;
+    private $desc_pad_14;
+
+    private $name_pad_15;
+    private $desc_pad_15;
 
     /**
      * Usuario constructor.
@@ -701,16 +722,240 @@ class Project extends EntityBase{
     }
 
     /**
+     * @return mixed
+     */
+    public function getNamePad0()
+    {
+        return $this->name_pad_0;
+    }
+
+    /**
+     * @param mixed $name_pad_0
+     */
+    public function setNamePad0($name_pad_0)
+    {
+        $this->name_pad_0 = $name_pad_0;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad0()
+    {
+        return $this->desc_pad_0;
+    }
+
+    /**
+     * @param mixed $desc_pad_0
+     */
+    public function setDescPad0($desc_pad_0)
+    {
+        $this->desc_pad_0 = $desc_pad_0;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNamePad11()
+    {
+        return $this->name_pad_11;
+    }
+
+    /**
+     * @param mixed $name_pad_11
+     */
+    public function setNamePad11($name_pad_11)
+    {
+        $this->name_pad_11 = $name_pad_11;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad11()
+    {
+        return $this->desc_pad_11;
+    }
+
+    /**
+     * @param mixed $desc_pad_11
+     */
+    public function setDescPad11($desc_pad_11)
+    {
+        $this->desc_pad_11 = $desc_pad_11;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNamePad12()
+    {
+        return $this->name_pad_12;
+    }
+
+    /**
+     * @param mixed $name_pad_12
+     */
+    public function setNamePad12($name_pad_12)
+    {
+        $this->name_pad_12 = $name_pad_12;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad12()
+    {
+        return $this->desc_pad_12;
+    }
+
+    /**
+     * @param mixed $desc_pad_12
+     */
+    public function setDescPad12($desc_pad_12)
+    {
+        $this->desc_pad_12 = $desc_pad_12;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNamePad13()
+    {
+        return $this->name_pad_13;
+    }
+
+    /**
+     * @param mixed $name_pad_13
+     */
+    public function setNamePad13($name_pad_13)
+    {
+        $this->name_pad_13 = $name_pad_13;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad13()
+    {
+        return $this->desc_pad_13;
+    }
+
+    /**
+     * @param mixed $desc_pad_13
+     */
+    public function setDescPad13($desc_pad_13)
+    {
+        $this->desc_pad_13 = $desc_pad_13;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNamePad14()
+    {
+        return $this->name_pad_14;
+    }
+
+    /**
+     * @param mixed $name_pad_14
+     */
+    public function setNamePad14($name_pad_14)
+    {
+        $this->name_pad_14 = $name_pad_14;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad14()
+    {
+        return $this->desc_pad_14;
+    }
+
+    /**
+     * @param mixed $desc_pad_14
+     */
+    public function setDescPad14($desc_pad_14)
+    {
+        $this->desc_pad_14 = $desc_pad_14;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNamePad15()
+    {
+        return $this->name_pad_15;
+    }
+
+    /**
+     * @param mixed $name_pad_15
+     */
+    public function setNamePad15($name_pad_15)
+    {
+        $this->name_pad_15 = $name_pad_15;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescPad15()
+    {
+        return $this->desc_pad_15;
+    }
+
+    /**
+     * @param mixed $desc_pad_15
+     */
+    public function setDescPad15($desc_pad_15)
+    {
+        $this->desc_pad_15 = $desc_pad_15;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSnAbstract()
+    {
+        return $this->sn_abstract;
+    }
+
+    /**
+     * @param mixed $snAbstract
+     */
+    public function setSnAbstract($sn_abstract)
+    {
+        $this->sn_abstract = $sn_abstract;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSnRepository()
+    {
+        return $this->sn_repository;
+    }
+
+    /**
+     * @param mixed $snRepository
+     */
+    public function setSnRepository($sn_repository)
+    {
+        $this->sn_repository = $sn_repository;
+    }
+
+    /**
      * @return bool|mysqli_result
      */
     public function saveProject() {
         $create_pad = false;
         try {
-            $query = "INSERT INTO project (name, id_arena, ubication, desc_project, date_from, date_to, sn_active, date_create, user_create, num_pad) VALUES (?,?,?,?,STR_TO_DATE(?, '%d/%m/%Y'),STR_TO_DATE(?, '%d/%m/%Y'), ?,sysdate(),?, ?)";
+            $query = "INSERT INTO project (name, id_arena, ubication, desc_project, date_from, date_to, sn_active, sn_abstract, sn_repository, date_create, user_create, num_pad) VALUES (?,?,?,?,STR_TO_DATE(?, '%d/%m/%Y'),STR_TO_DATE(?, '%d/%m/%Y'), ?, ?, ?, sysdate(), ?, ?)";
 
             // Insert the new project into the database
             if ($insert_stmt_p = $this->db()->prepare($query)) {
-                $insert_stmt_p->bind_param('sissssssi', $this->name, $this->id_arena, $this->ubication, $this->desc_proj, $this->date_from, $this->date_to, $this->sn_active, $this->user_create, $this->num_pad);
+                $insert_stmt_p->bind_param('sissssssssi', $this->name, $this->id_arena, $this->ubication, $this->desc_project, $this->date_from, $this->date_to, $this->sn_active, $this->sn_abstract, $this->sn_repository, $this->user_create, $this->num_pad);
                 // Execute the prepared query.
                 if (!$insert_stmt_p->execute()) {
                     $create_pad = false;

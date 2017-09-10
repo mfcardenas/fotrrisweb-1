@@ -3,15 +3,18 @@
 class ControllerBase{
 
     private $combo;
+    private $gm;
 
     public function __construct() {
         require_once 'EntityBase.php';
         require_once 'ModelBase.php';
         require_once 'Combo.php';
+        require_once 'model/globalModel.php';
         
         require_once 'includes/gerror.php';
 
         $this->combo = new Combo();
+        $this->gm = new GlobalModel();
 
         //Incluir todos los modelos
         foreach(glob(dirname(__DIR__)."/model/*.php") as $file){
@@ -53,8 +56,7 @@ class ControllerBase{
     /**
      * @param Combo $combo
      */
-    public function setCombo($combo)
-    {
+    public function setCombo($combo) {
         $this->combo = $combo;
     }
 
@@ -62,10 +64,40 @@ class ControllerBase{
      * @param $param
      * @return array
      */
-    public function getParameter($param){
+    function getParameter($param){
         if ($param != ''){
             return $parameter = explode("_", $param);
         }
+    }
+
+    /**
+     * Function Generate Password Random.
+     * @return string
+     */
+    function randomPass() {
+        $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+        $pass = array();
+        $alphaLength = strlen($alphabet) - 1;
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass);
+    }
+
+    /**
+     * @return GlobalModel
+     */
+    public function getGm() {
+        return $this->gm;
+    }
+
+    /**
+     * @param GlobalModel $gm
+     */
+    public function setGm(GlobalModel $gm)
+    {
+        $this->gm = $gm;
     }
 
 }

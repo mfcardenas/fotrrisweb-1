@@ -22,11 +22,9 @@ class ArenaController extends ControllerBase{
      */
     public function index(){
         
-        //Creamos el objeto GlobalModel
-        $gm = new GlobalModel();
         $class = "Arena";
         //Conseguimos todos las arenas
-        $allarena = $gm->getListArenas($class);
+        $allarena = $this->getGm()->getListArenas($class);
         if (is_bool($allarena) || $allarena == null || $allarena == '' || count($allarena) == 0){
             $allarena = [];
         }
@@ -106,8 +104,7 @@ class ArenaController extends ControllerBase{
             $arena->setUserModif($user);
             $id_user_list =     filter_input(INPUT_POST, 'id_user_list', FILTER_SANITIZE_STRING);
 
-            $gm = new GlobalModel();
-            $result = $gm->updateArena($arena, $this->table);
+            $result = $this->getGm()->updateArena($arena, $this->table);
 
             $list_user = explode(",", $id_user_list);
             $result_am = "";
@@ -232,8 +229,7 @@ class ArenaController extends ControllerBase{
     public function manager(){
         if(isset($_GET["id_user"])){
             $id_user =  $_GET["id_user"];
-            $am = new GlobalModel();
-            $am->setManagerArena($id_user, "arena");
+            $this->getGm()->setManagerArena($id_user, "arena");
         }
     }
 

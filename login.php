@@ -4,8 +4,12 @@ require_once 'includes/register.inc.php';
 require_once 'includes/functions.php';
 require_once 'core/Combo.php';
 require_once 'includes/translate.php';
+require_once 'includes/mail.php';
+require_once 'core/HelpView.php';
 
 sec_session_start();
+
+$helper = new HelpView();
 
 if (login_check($mysqli) == true) {
     $logged = 'in';
@@ -16,7 +20,7 @@ if (login_check($mysqli) == true) {
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8">
     <title>FoTRRIS Login </title>
     <?php include("section/sincl_html.php"); ?>
     <link rel="stylesheet" href="css/util.css"/>
@@ -99,8 +103,13 @@ if (login_check($mysqli) == true) {
                                         </div>
                                         <div class="form-group text-center">
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                            <label for="remember"> <?php echo _("Remember Me"); ?> </label>
+                                            <label for="remember"><?php echo _("Remember Me"); ?></label>
                                         </div>
+                                        <!--div class="form-group text-center">
+                                            <a class="dynatable-page-link dynatable-page-next" href="#" data-target="#password-modal" data-toggle="modal">
+                                                <!--?php echo _("Forgot my password"); ?>
+                                            </a>
+                                        </div-->
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
@@ -147,11 +156,12 @@ if (login_check($mysqli) == true) {
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" id="password" tabindex="5"
-                                                   class="form-control" placeholder="<?php echo _("Password"); ?>"/>
+                                                   class="form-control" placeholder="<?php echo _("Passwords must be at least 6 characters long"); ?>"/>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="confirmpwd" id="confirmpwd" tabindex="6"
                                                    class="form-control" placeholder="<?php echo _("Confirm Password"); ?>"/>
+                                            <p class="help-block">* <?php echo _("Passwords must be at least 6 characters"); ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label for="imgpicture"><?php echo _("Picture?"); ?> </label>
@@ -159,6 +169,12 @@ if (login_check($mysqli) == true) {
                                                    title="Upload a picture (1MB Max.)" />
                                             <p class="help-block"> <?php echo _("Upload a picture"); ?> (1MB Max.)</p>
                                             <input type="hidden" name="perfil" id="perfil" value="1"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <!-- BEGIN: ReCAPTCHA implementation example. -->
+                                                <div id="recaptcha-demo-register" class="g-recaptcha center-div" data-sitekey="6LcQghkUAAAAAA9YXugO4hh5uy5Ejwuki1lADZlq" data-callback="onSuccess"></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
@@ -183,6 +199,55 @@ if (login_check($mysqli) == true) {
                                         </div>
                                     </form>
                                 </div>
+                                <div class="col-lg-12">
+                                    <!--modal-->
+                                    <div id="password-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h1 class="text-center" style="color: black;">
+                                                        <?php echo _("What's My Password?"); ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body">
+                                                                <div class="text-center">
+                                                                    <p><?php echo _("If you have forgotten your password you can reset it here."); ?></p>
+                                                                    <div class="panel-body">
+                                                                        <form id="send_reset_password" data-toggle="validator" method="post" action="<?php echo $helper->url('user','forgotPass'); ?>">
+                                                                            <fieldset>
+                                                                                <div class="form-group">
+                                                                                    <input required class="form-control input-lg" placeholder="<?php echo _("email"); ?>" name="email" id="email" type="email" data-error="This email address is invalid"/>
+                                                                                    <div class="help-block with-errors"></div>
+                                                                                </div>
+                                                                                <input class="btn btn-lg btn-primary btn-block" value="<?php echo _("Send Password"); ?>" type="submit" />
+                                                                            </fieldset>
+                                                                        </form>
+                                                                        <script type="application/javascript">
+                                                                            $(document).ready(function(){
+                                                                                $('#send_reset_password').submit(function(){
+                                                                                    $(this).find(':input[type=submit]').prop('disabled', true);
+                                                                                });
+                                                                            });
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="col-md-12">
+                                                        <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo _("Cancel"); ?></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -197,6 +262,20 @@ if (login_check($mysqli) == true) {
             </div>
         </div>
     </div>
+    <script type="application/javascript">
+        var onSuccess = function (response) {
+            var errorDivs = document.getElementsByClassName("recaptcha-error");
+            if (errorDivs.length) {
+                errorDivs[0].className = "";
+            }
+            var errorMsgs = document.getElementsByClassName("recaptcha-error-message");
+            if (errorMsgs.length) {
+                errorMsgs[0].parentNode.removeChild(errorMsgs[0]);
+            }
+        };
+    </script><!-- Optional noscript fallback. -->
+    <!--js-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </section>
 <footer>
     <?php include("section/sincl_footer.php"); ?>

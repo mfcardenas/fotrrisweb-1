@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+# WORD HEADER
+# ###################################################################
+msgid "Language"
+msgstr "Taal"
+
+msgid "Home"
+msgstr "Startpagina"
+
+msgid "Show Projects"
+msgstr "Projecten"
+
+# msgid_plural "You have %d messages"
+# msgstr[0] "Usted tiene %d mensaje"
+# msgstr[1] "Usted tiene %d mensajes"
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "Profile"
+msgstr "Profiel"
+
+msgid "Hubs"
+msgstr "Hubs"
+
+msgid "Projects"
+msgstr "Projecten"
+
+msgid "Project"
+msgstr "Project"
+
+msgid "Assign Projects"
+msgstr "Toewijzen projecten"
+
+msgid "My Projects"
+msgstr "Mijn projecten"
+
+msgid "Login as"
+msgstr "Aangemeld als "
+
+msgid "Your profile"
+msgstr "Jouw profiel"
+
+msgid "Logout"
+msgstr "Uitloggen"
+
+msgid "Login/Register"
+msgstr "Aanmelden/Registreren"
+
+# WORD BODY WELLCOME
+# ###################################################################
+# word 1
+msgid "Welcome to the Project"
+msgstr "Welkom bij FoTRISS"
+
+# word 2
+msgid "Working on"
+msgstr "Werken aan"
+
+msgid "Web Platform"
+msgstr "Web Platform"
+
+msgid "Responsible Research and Innovation (RRI)"
+msgstr "Verantwoord Onderzoek en Innovatie"
+
+msgid "Please Login"
+msgstr "Alstublieft aanmelden"
+
+# WORD BODY WELLCOME  NEW LITERAL
+# ###################################################################
+# word 1
+msgid "Welcome to the FoTRRIS web Platform"
+msgstr "Welcome to the FoTRRIS web Platform"
+
+msgid "Platform for co-creation of Project ideas"
+msgstr "Platform for co-creation of RRI Project ideas"
+
+msgid "Fostering Transition into Responsible Research and Innovation"
+msgstr "Fostering Transition into Responsible Research and Innovation"
+
+msgid "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+msgstr "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+
+msgid "Usage Guidelines"
+msgstr "Usage Guidelines"
+
+msgid "General Information of web Platform"
+msgstr "General Information of web Platform"
+
+# SHOW PROJECT
+# ####################################################################
+msgid "Description"
+msgstr "Omschrijving"
+
+msgid "Project Description"
+msgstr "Project omschrijving"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Join"
+msgstr "Aansluiten"
+
+msgid "Keywords"
+msgstr "Kernwoorden"
+
+msgid "WebSite"
+msgstr "WebSite"
+
+msgid "List of projects associated with the Hub user"
+msgstr "Lijst van projecten gelinkt aan de Hub gebruiker"
+
+msgid "List of all projects"
+msgstr "Lijst van alle projecten"
+
+msgid "list"
+msgstr "lijst"
+
+msgid "Work in progress"
+msgstr "Work in progress"
+
+# Sing in/up
+#
+# #######################
+msgid "Login"
+msgstr "Aanmelden"
+
+msgid "Register"
+msgstr "Registreren"
+
+msgid "Remember Me"
+msgstr "Onthoud mij"
+
+# msgid "Forgot password?"
+# msgstr "Paswoord vergeten?"
+# REGISTER
+# ###################################################################
+msgid "Full Name"
+msgstr "Volledige naam"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid "Email Address"
+msgstr "Email adres"
+
+msgid "Password"
+msgstr "Paswoord  "
+
+msgid "Confirm Password"
+msgstr "Bevestig paswoord"
+
+msgid "Picture?"
+msgstr "Foto?"
+
+msgid "Examine"
+msgstr "Nakijken"
+
+msgid "Upload a picture"
+msgstr "Foto toevoegen"
+
+msgid "Register Now"
+msgstr "Registreer nu"
+
+msgid "Passwords must be at least 6 characters long"
+msgstr "Het paswoord moet minstens bestaan uit 6 karakters"
+
+msgid "Passwords must be at least 6 characters long..."
+msgstr "Het paswoord moet minstens bestaan uit 6 karakters en minstens 1 cijfer, 1 kleine en 1 hoofdletter bevatten."
+
+# LOGIN
+# ###################################################################
+# password y el resto de placeholder aunq esten en register hay que meter el echo
+msgid "email"
+msgstr "email"
+
+msgid "LOG IN"
+msgstr "LOG IN"
+
+# Aanmelden
+# USER
+#
+# ######################################
+# list, user, username, email, profile, create, user create, status, actions
+msgid "Name"
+msgstr "Naam"
+
+msgid "Created"
+msgstr "Aanmaken"
+
+msgid "Created By"
+msgstr "Create By"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Actions"
+msgstr "Acties"
+
+msgid "Create User"
+msgstr "Maak gebruiker aan"
+
+msgid "Minimum of 6 characters"
+msgstr "Minstens 6 karakters"
+
+msgid "Update"
+msgstr "Aanpassen"
+
+msgid "Clear"
+msgstr "Leegmaken"
+
+msgid "Back"
+msgstr "Terug"
+
+# PROFILE
+#
+# #############################
+msgid "Type"
+msgstr "Type"
+
+msgid "Create Profile"
+msgstr "Maak profiel aan"
+
+# HUBS
+#
+# #############################
+msgid "Place"
+msgstr "Plaats"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Managers"
+msgstr "Beheerder"
+
+msgid "Create Hubs"
+msgstr "Maak hub aan"
+
+# PROJECTS
+#
+# #############################
+msgid "Ubication"
+msgstr "Locatie"
+
+msgid "Duration"
+msgstr "Duur"
+
+msgid "From"
+msgstr "Van"
+
+msgid "To"
+msgstr "Tot"
+
+msgid "Pads"
+msgstr "Pads"
+
+# Paden
+msgid "Create Project"
+msgstr "Maak project aan"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "A project can only have most 15 pads"
+msgstr "Een project kan maximum 15 paden bevatten"
+
+msgid "Phase"
+msgstr "Fase"
+
+msgid "Keywords of project (separe for comma)"
+msgstr "Kernwoorden (scheidt door komma)"
+
+msgid "Image for project"
+msgstr "Projectfoto"
+
+msgid "Abstract"
+msgstr "Abstract"
+
+msgid "Repository"
+msgstr "Repository"
+
+# ASSIGN PROJECTS
+#
+# #############################
+msgid "Assign User to Project"
+msgstr "Wijs gebruiker toe aan project"
+
+msgid "Name Project"
+msgstr "Naam project"
+
+msgid "Name user"
+msgstr "Naam gebruiker"
+
+msgid "Email user"
+msgstr "Email gebruiker"
+
+msgid "Hub Project"
+msgstr "Project Hub"
+
+msgid "Assign Project"
+msgstr "Wijs project toe"
+
+msgid "Select Project"
+msgstr "Selecteer project"
+
+msgid "Select User"
+msgstr "Selecteer gebruiker"
+
+msgid "Your request is send to the project leader"
+msgstr "Bedankt voor uw interesse in dit project. Uw aanvraag is ter goedkeuring voorgelegd aan de projectmanager"
+
+# MY PROFILE
+#
+# #############################
+msgid "User Profile"
+msgstr "Gebruikersprofiel"
+
+msgid "Edit Profile"
+msgstr "Pas profiel aan"
+
+msgid "Institution"
+msgstr "Organisatie"
+
+msgid "Location"
+msgstr "Locatie"
+
+# msgid "City"
+# msgstr "City"
+# msgid "Country"
+# msgstr "Country"
+msgid "New Password"
+msgstr "Nieuw Paswoord"
+
+msgid "Change your picture"
+msgstr "Wijzig foto"
+
+msgid "Upload a picture about you..."
+msgstr "Laad uw foto op..."
+
+# WORD FOOTER
+# ###################################################################
+msgid "About"
+msgstr "Over"
+
+msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+msgstr "is een Europees onderzoeksproject over 'Verantwoordelijk Onderzoek en innovatie"
+
+msgid "More information at"
+msgstr "Meer informatie op "
+
+msgid "Social Links"
+msgstr "Sociale linken"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Web Master"
+msgstr "Web Master"
+
+# JAVASCRIPT
+msgid "JavaScript needed in the browser to work correctly"
+msgstr "JavaScript needed in the browser to work correctly"
+
+# PDF
+msgid "Export Abstract to PDF"
+msgstr "Export Abstract to PDF"
+
+msgid "Your request is send to the projectleader"
+msgstr "Your request is send to the projectleader"

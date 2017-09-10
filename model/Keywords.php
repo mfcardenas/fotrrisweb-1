@@ -193,7 +193,7 @@ class Keywords extends EntityBase
                 $key = $this->db()->error;//"908";
             }
         } catch (Exception $e) {
-            header('Location: ../error.php?err=' . $e->getMessage() . "\n");
+            header('Location: /error.php?err=' . $e->getMessage() . "\n");
         }
         return $key;
     }

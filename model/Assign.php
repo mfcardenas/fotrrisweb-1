@@ -18,6 +18,10 @@ class Assign extends EntityBase {
     private $date_modif;
     private $date_to;
     private $date_from;
+    private $name_project;
+    private $name_hub;
+    private $name_user;
+    private $email;
 
     /**
      * Constructor.
@@ -178,8 +182,71 @@ class Assign extends EntityBase {
         $this->date_modif = $date_modif;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNameProject()
+    {
+        return $this->name_project;
+    }
 
     /**
+     * @param mixed $name_project
+     */
+    public function setNameProject($name_project)
+    {
+        $this->name_project = $name_project;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameHub()
+    {
+        return $this->name_hub;
+    }
+
+    /**
+     * @param mixed $name_hub
+     */
+    public function setNameHub($name_hub)
+    {
+        $this->name_hub = $name_hub;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameUser()
+    {
+        return $this->name_user;
+    }
+
+    /**
+     * @param mixed $name_user
+     */
+    public function setNameUser($name_user)
+    {
+        $this->name_user = $name_user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+     /**
      * @return bool|mysqli_result
      */
     public function save(){
@@ -196,7 +263,7 @@ class Assign extends EntityBase {
                 $key = $this->db()->error;//"908";
             }
         } catch (Exception $e) {
-            header('Location: ../error.php?err=' . $e->getMessage() . "\n");
+            header('Location: /error.php?err=' . $e->getMessage() . "\n");
         }
         return $key;
     }

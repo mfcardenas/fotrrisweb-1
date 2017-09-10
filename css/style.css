@@ -20,6 +20,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
+}
+
+h3, h1 {
     font-weight: 700;
 }
 
@@ -641,7 +644,7 @@ div.success, div.notice, div.error {
 }
 
 .keywords {
-    height: 45px;
+    height: 55px;
 }
 
 
@@ -729,4 +732,41 @@ ul, ol {
 }
 .border {
     border: 1px solid #e5e5e5 !important;
+}
+
+
+.center-div {
+    display: table;
+    margin: 0 auto;
+}
+
+
+.simple{
+    text-decoration: none;
+    color: white;
+}
+
+#img_simple {
+    display: inline; !important;
+}
+
+.bck {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+.bck_b a {
+    background-color: #00a8c6;
+    color: inherit;
+}
+
+.bck_g a{
+    background-color: #7aba7b;
+    color: inherit;
+}
+
+.show_message_join {
+    display: none;
+    color: green;
 }

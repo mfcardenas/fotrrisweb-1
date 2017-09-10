@@ -69,15 +69,28 @@ li {
   line-height: 18px;
 }
 
-.tab-content.active{
+.tab-content > .active{
     visibility: visible;
     text-align: center;
 }
 
-.tab-content.hide{
+.tab-content > .hide{
 
     visibility: hidden;
 }
 
+.embed-container {
+  position: relative;
+  padding-bottom: 65.0%;
+  height: 0;
+  overflow: hidden;
+}
+.embed-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 95%;
+  height: 95%;
+}
 
 /** End: to style navigation tab **/

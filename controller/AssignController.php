@@ -26,14 +26,12 @@ class AssignController extends ControllerBase{
         $parameter = $this->getParameter($param);
         $id_user =   $parameter[1];
         $type =  $parameter[3];
-
+        $class = "Assign";
         if ($type == 3){
-            $gm = new GlobalModel();
-            $class = "Assign";
-            $allassign=$gm->getAssignProjectManager($id_user, $class);
+            $allassign=$this->getGm()->getAssignProject($id_user, $class, true);
             // echo "-------getAssignProjectManager";
         }else{
-            $allassign=$assign->getAll();
+            $allassign=$this->getGm()->getAssignProject($id_user, $class, false);
             // echo "-------getAll";
         }
         
@@ -52,7 +50,7 @@ class AssignController extends ControllerBase{
      *
      */
     public function create(){
-        $assign = new assign();
+        $assign = new Assign();
         $keyerrors = [];
         $result = "";
 
@@ -130,8 +128,8 @@ class AssignController extends ControllerBase{
                 $user =  filter_input(INPUT_POST, 'userapp', FILTER_SANITIZE_STRING);
                 $assign->setUserModif($user);
 
-                $pm = new GlobalModel();
-                $result = $pm->updateAssign($assign, $this->table);
+                //$pm = new GlobalModel();
+                $result = $this->getGm()->updateAssign($assign, $this->table);
 
             } else{
                 array_push($keyerrors, "999");

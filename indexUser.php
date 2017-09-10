@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS Users </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -94,10 +95,10 @@
                                                 <?php echo _("Profile"); ?>
                                             </th>
                                             <th class="dynatable-head" data-dynatable-column="create">
-                                                <?php echo _("Create"); ?>
+                                                <?php echo _("Created"); ?>
                                             </th>
                                             <th class="dynatable-head" data-dynatable-column="user_create">
-                                                <?php echo _("User Create"); ?>
+                                                <?php echo _("Created By"); ?>
                                             </th>
                                             <th class="dynatable-head" style="text-align: center;" data-dynatable-column="status">
                                                 <?php echo _("Status"); ?>
@@ -134,6 +135,7 @@
                                                         echo $combo->getStatus($user->getSnActive(), false);
                                                         ?>
                                                     </select>
+                                                    <span style="display: none;"><?php echo $user->getSnActive(); ?></span>
                                                 </td>
                                                 <!--td style='text-align: left;'>< ?php echo $user->getIdPerfil(); ?></td-->
                                                 <td>

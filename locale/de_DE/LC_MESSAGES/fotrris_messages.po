@@ -1,0 +1,379 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+# WORD HEADER
+# ###################################################################
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Show Projects"
+msgstr "Projekte anzeigen"
+
+# msgid_plural "You have %d messages"
+# msgstr[0] "Usted tiene %d mensaje"
+# msgstr[1] "Usted tiene %d mensajes"
+msgid "User"
+msgstr "BenutzerIn"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Hubs"
+msgstr "Hubs"
+
+msgid "Projects"
+msgstr "Projekte "
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "Assign Projects"
+msgstr "Projekt zuweisen"
+
+msgid "My Projects"
+msgstr "Meine Projekte"
+
+msgid "Login as"
+msgstr "Angemeldet als"
+
+msgid "Your profile"
+msgstr "Mein Profil"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Login/Register"
+msgstr "Anmelden"
+
+# WORD BODY WELLCOME
+# ###################################################################
+# word 1
+msgid "Welcome to the Project"
+msgstr "Willkommen zum Projekt"
+
+# word 2
+msgid "Working on"
+msgstr "Besch&auml;ftigt sich mit"
+
+msgid "Web Platform"
+msgstr "Webplattform"
+
+msgid "Responsible Research and Innovation (RRI)"
+msgstr "Verantwortungsvolle Forschung und Innovation (Responsible Research and Innovation; RRI)"
+
+msgid "Please Login"
+msgstr "Bitte Einloggen"
+
+# WORD BODY WELLCOME  NEW LITERAL
+# ###################################################################
+# word 1
+msgid "Welcome to the FoTRRIS web Platform"
+msgstr "Welcome to the FoTRRIS web Platform"
+
+msgid "Platform for co-creation of Project ideas"
+msgstr "Platform for co-creation of RRI Project ideas"
+
+msgid "Fostering Transition into Responsible Research and Innovation"
+msgstr "Fostering Transition into Responsible Research and Innovation"
+
+msgid "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+msgstr "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+
+msgid "Usage Guidelines"
+msgstr "Usage Guidelines"
+
+msgid "General Information of web Platform"
+msgstr "General Information of web Platform"
+
+# SHOW PROJECT
+# ####################################################################
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Project Description"
+msgstr "Projektbeschreibung"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Join"
+msgstr "Beitreten"
+
+msgid "Keywords"
+msgstr "Schl&uuml;sselw&ouml;rter"
+
+msgid "WebSite"
+msgstr "Webseite"
+
+msgid "List of projects associated with the Hub user"
+msgstr "Liste der zum Hub-User geh&ouml;rigen Projekte "
+
+msgid "List of all projects"
+msgstr "Liste aller Projekte"
+
+msgid "list"
+msgstr "Liste"
+
+# Sing in/up
+#
+# #######################
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Registrierung"
+
+msgid "Remember Me"
+msgstr "Kennwort merken"
+
+# msgid "Forgot password?"
+# msgstr "Passwort vergessen?"
+# REGISTER
+# ###################################################################
+msgid "Full Name"
+msgstr "Vollst&auml;ndiger Name"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Email Address"
+msgstr "E-Mail Adresse"
+
+msgid "Password"
+msgstr "Passwort "
+
+msgid "Confirm Password"
+msgstr "Passwort best&auml;tigen"
+
+msgid "Picture?"
+msgstr "Foto?"
+
+msgid "Examine"
+msgstr "Pr&uuml;fen"
+
+msgid "Upload a picture"
+msgstr "Foto hochladen"
+
+msgid "Register Now"
+msgstr "Jetzt registrieren"
+
+msgid "Passwords must be at least 6 characters long"
+msgstr "Das Passwort muss mindestens 6 Zeichen umfassen."
+
+msgid "Passwords must be at least 6 characters"
+msgstr "Das Passwort muss mindestens 6 Zeichen umfassen, davon mindestens eine Zahl, mind. ein Klein- und mind. ein Großbuchstabe."
+
+# LOGIN
+# ###################################################################
+# password y el resto de placeholder aunq esten en register hay que meter el echo
+msgid "email"
+msgstr "email"
+
+msgid "LOG IN"
+msgstr "Einloggen"
+
+# USER
+#
+# ######################################
+# list, user, username, email, profile, create, user create, status, actions
+msgid "Name"
+msgstr "Name"
+
+msgid "Created"
+msgstr "Erstellung"
+
+msgid "Create By"
+msgstr "User Erstellung"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Create User"
+msgstr "User erstellen"
+
+msgid "Minimum of 6 characters"
+msgstr "Mindestens 6 Zeichen"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Clear"
+msgstr "L&ouml;schen"
+
+msgid "Back"
+msgstr "Zur&uuml;ck"
+
+# PROFILE
+#
+# #############################
+msgid "Type"
+msgstr "Typ"
+
+msgid "Create Profile"
+msgstr "Profil erstellen"
+
+# HUBS
+#
+# #############################
+msgid "Place"
+msgstr "Ort"
+
+msgid "Address"
+msgstr "Addresse"
+
+msgid "Managers"
+msgstr "ManagerInnen"
+
+msgid "Create Hubs"
+msgstr "Hubs erstellen"
+
+# PROJECTS
+#
+# #############################
+msgid "Ubication"
+msgstr "Land"
+
+msgid "Duration"
+msgstr "Dauer"
+
+msgid "From"
+msgstr "von"
+
+msgid "To"
+msgstr "bis"
+
+msgid "Pads"
+msgstr "Pads"
+
+msgid "Create Project"
+msgstr "Projekt erstellen"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "A project can only have most 15 pads"
+msgstr "Ein Projekt kann maximal 15 Pads umfassen."
+
+msgid "Phase"
+msgstr "Phase"
+
+msgid "Keywords of project (separe for comma)"
+msgstr "Schlagw&ouml;rter des Projekts (durch Komma getrennt)"
+
+msgid "Image for project"
+msgstr "Bild f&uuml;r das Projekt"
+
+# ASSIGN PROJECTS
+#
+# #############################
+msgid "Assign User to Project"
+msgstr "BenutzerInnen zum Projekt zuweisen"
+
+msgid "Name Project"
+msgstr "Projektname"
+
+msgid "Name user"
+msgstr "User-Name"
+
+msgid "Email user"
+msgstr "User-Email"
+
+msgid "Hub Project"
+msgstr "Projekt-Hub"
+
+msgid "Assign Project"
+msgstr "Projekt zuweisen"
+
+msgid "Select Project"
+msgstr "Projekt ausw&auml;hlen"
+
+msgid "Select User"
+msgstr "User ausw&auml;hlen"
+
+msgid "Your request is send to the project leader"
+msgstr "Vielen Dank für Ihr Interesse an diesem Projekt. Ihre Anfrage wurde zur Genehmigung an den Projektleiter gesendet"
+
+# MY PROFILE
+#
+# #############################
+msgid "User Profile"
+msgstr "BenutzerInnenprofil"
+
+msgid "Edit Profile"
+msgstr "Projekt bearbeiten"
+
+msgid "Institution"
+msgstr "Institution"
+
+msgid "Location"
+msgstr "Ort"
+
+# msgid "City"
+# msgstr "Stadt"
+# msgid "Country"
+# msgstr "Land"
+msgid "New Password"
+msgstr "Neues Passwort"
+
+msgid "Change your picture"
+msgstr "Ändern Sie Ihr Foto"
+
+msgid "Upload a picture about you..."
+msgstr "Laden Sie ein Foto von sich hoch..."
+
+# WORD FOOTER
+# ###################################################################
+msgid "About"
+msgstr "Über"
+
+msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+msgstr "ist ein europ&auml;isches Forschungsprojekt zu verwnatortungsvoller Forschung und Innovation des H2020 Programms"
+
+msgid "More information at"
+msgstr "Mehr Informationen unter"
+
+msgid "Social Links"
+msgstr "Social Media Links"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Web Master"
+msgstr "WebmasterIn"
+
+msgid "Enter your email in the username field"
+msgstr "Geben Sie Ihre E-Mail in das Feld Benutzername ein"
+
+msgid "Active users"
+msgstr "aktive Nutzer"
+
+msgid "What's My Password?"
+msgstr "Was ist mein Passwort?"
+
+msgid "If you have forgotten your password you can reset it here."
+msgstr "Wenn du dein Passwort vergessen hast, kannst du es hier zur&uuml;cksetzen."
+
+msgid "Cancel"
+msgstr "Stornieren"
+
+msgid "Send New Password"
+msgstr "Neues Passwort senden"
+
+msgid "Your request is send to the projectleader"
+msgstr "Your request is send to the projectleader"

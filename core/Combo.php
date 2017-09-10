@@ -30,6 +30,7 @@ class Combo {
         require_once 'connect.php';
         $this->conn = new ConnectDB();
         $this->db = $this->conn->conexion();
+        //$this->db = ConnectDB::getConn();
     }
 
 
@@ -91,7 +92,7 @@ class Combo {
 
             }
         } catch (Exception $e){
-
+            $comboPerfil->close();
         }
         return $strComboPerfil;
     }
@@ -126,7 +127,7 @@ class Combo {
                 $comboPerfil->close();
             }
         } catch (Exception $e){
-
+            $comboPerfil->close();
         }
         return $strComboPerfil;
     }

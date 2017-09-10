@@ -13,7 +13,7 @@ require_once 'includes/functions.php';
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <meta charset="UTF-8">
         <title>FoTRRIS Projects </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -138,7 +138,7 @@ require_once 'includes/functions.php';
                                             <label class="control-label col-xs-4"><?php echo _("Number"); ?>:*</label>
                                             <div class="col-sm-5">
                                                 <select required id="num_pad_t" name="num_pad_t" tabindex="7" >
-                                                    <?php echo $combo->getNumPad($project->getNumPad(), false, 10); ?>
+                                                    <?php echo $combo->getNumPad($project->getNumPad(), false, 15); ?>
                                                 </select>
                                                 <input type="hidden" id="num_pad" name="num_pad" value="<?php echo $project->getNumPad(); ?>"/>
                                             </div>
@@ -322,11 +322,98 @@ require_once 'includes/functions.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group desc_pad11">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-4">
+                                        <label for="name_p11" class="control-label col-xs-3"><?php echo _("Name"); ?>:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name_p11" name="name_p11" tabindex="26" value="<?php echo ($project->getNamePad11()=='')?NAME_FASE_11:$project->getNamePad11(); ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="desc_p11" class="control-label col-xs-3"><?php echo _("Phase"); ?> 11:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="desc_p11" name="desc_p11" tabindex="27" value="<?php echo ($project->getDescPad11()=='')?DESC_FASE_11:$project->getDescPad11(); ?>"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group desc_pad12">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-4">
+                                        <label for="name_p12" class="control-label col-xs-3"><?php echo _("Name"); ?>:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name_p12" name="name_p12" tabindex="26" value="<?php echo ($project->getNamePad12()=='')?NAME_FASE_12:$project->getNamePad12(); ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="desc_p12" class="control-label col-xs-3"><?php echo _("Phase"); ?> 12:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="desc_p12" name="desc_p12" tabindex="27" value="<?php echo ($project->getDescPad12()=='')?DESC_FASE_12:$project->getDescPad12(); ?>"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group desc_pad13">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-4">
+                                        <label for="name_p13" class="control-label col-xs-3"><?php echo _("Name"); ?>:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name_p13" name="name_p13" tabindex="26" value="<?php echo ($project->getNamePad13()=='')?NAME_FASE_13:$project->getNamePad13(); ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="desc_p13" class="control-label col-xs-3"><?php echo _("Phase"); ?> 13:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="desc_p13" name="desc_p13" tabindex="27" value="<?php echo ($project->getDescPad13()=='')?DESC_FASE_13:$project->getDescPad13(); ?>"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group desc_pad14">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-4">
+                                        <label for="name_p14" class="control-label col-xs-3"><?php echo _("Name"); ?>:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name_p14" name="name_p14" tabindex="26" value="<?php echo ($project->getNamePad14()=='')?NAME_FASE_14:$project->getNamePad14(); ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="desc_p14" class="control-label col-xs-3"><?php echo _("Phase"); ?> 14:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="desc_p14" name="desc_p14" tabindex="27" value="<?php echo ($project->getDescPad14()=='')?DESC_FASE_14:$project->getDescPad14(); ?>"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group desc_pad15">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-4">
+                                        <label for="name_p15" class="control-label col-xs-3"><?php echo _("Name"); ?>:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name_p15" name="name_p15" tabindex="26" value="<?php echo ($project->getNamePad15()=='')?NAME_FASE_15:$project->getNamePad15(); ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="desc_p15" class="control-label col-xs-3"><?php echo _("Phase"); ?> 15:*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="desc_p15" name="desc_p15" tabindex="27" value="<?php echo ($project->getDescPad15()=='')?DESC_FASE_15:$project->getDescPad15(); ?>"/>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="sn_active" class="control-label col-xs-3"><?php echo _("Status"); ?>:*</label>
-                                    <div class="col-xs-9">
+                                    <div class="col-xs-2">
                                         <select required name="sn_active" id="sn_active" tabindex="28">
                                             <?php echo $combo->getStatus($project->getSnActive(), false); ?>
+                                        </select>
+                                    </div>
+                                    <label for="abstract" class="control-label col-xs-2"><?php echo _("Abstract"); ?>:*</label>
+                                    <div class="col-xs-2">
+                                        <select required name="abstract" id="abstract" tabindex="29">
+                                            <?php echo $combo->getStatus($project->getSnAbstract(), false); ?>
+                                        </select>
+                                    </div>
+                                    <label for="repository" class="control-label col-xs-1"><?php echo _("Repository"); ?>:*</label>
+                                    <div class="col-xs-2">
+                                        <select required name="repository" id="repository" tabindex="29">
+                                            <?php echo $combo->getStatus($project->getSnRepository(), false); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -483,6 +570,31 @@ require_once 'includes/functions.php';
                                             <input type="radio" name="images" id="images" value="img_project_16.png"
                                                 <?php if ($project->getImages() == "img_project_16.png") echo "checked";?>/>
                                             <img src="img/img_project_16.png" title="Image for Project">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3"></label>
+                                    <div class="col-xs-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="images" id="images" value="img_project_17.png"
+                                                <?php if ($project->getImages() == "img_project_17.png") echo "checked";?> />
+                                            <img src="img/img_project_17.png" title="Image for Project">
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <label class="radio-inline">
+
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <label class="radio-inline">
+
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <label class="radio-inline">
+
                                         </label>
                                     </div>
                                 </div>

@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS User </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -123,9 +124,9 @@
                                 <div class="form-group">
                                     <label for="password" class="control-label col-xs-3"><?php echo _("New Password"); ?>:</label>
                                     <div class="col-xs-6 col-sm-4 col-md-6">
-                                <input data-minlength="6" type="password" class="form-control" placeholder="<?php echo _("New Password"); ?>"
+                                <input data-minlength="6" type="password" class="form-control" placeholder="<?php echo _("Passwords must be at least 6 characters long"); ?>"
                                        id="password" name="password" value="" tabindex="5"/>
-                                        <div class="help-block"><?php echo _("Minimum of 6 characters"); ?></div>
+                                        <div class="help-block"><?php echo _("Passwords must be at least 6 characters"); ?></div>
                                     </div>
                                     <div class="col-xs-3 col-md-2"></div>
                                 </div>

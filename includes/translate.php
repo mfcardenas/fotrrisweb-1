@@ -10,7 +10,7 @@ if (isset($_GET['lang'])){
     if (isset($_COOKIE['lang'])) {
         $locale = $_COOKIE['lang']; // add selected language in variable
     } else {
-        $locale = "en_US"; // set English US as default language
+        $locale = "en_GB"; // set English US as default language
     }
 }
 

@@ -28,11 +28,11 @@ function regformhash(form, name, uid, email, password, conf, image, perfil, sn_a
         return false;
     }
 
-    if (gaction.value == "Create" || gaction == undefined){
-         if (password.value == '' || conf.value == ''){
-             alert('You must provide all the requested details. Please try again');
-             return false;
-         }
+    if (password.value != "" || conf.value != "") {
+        if (password.value == '' || conf.value == '') {
+            alert('You must provide all the requested details. Please try again');
+            return false;
+        }
 
         // Check that the password is sufficiently long (min 6 chars)
         // The check is duplicated below, but this is included to give more
@@ -64,7 +64,7 @@ function regformhash(form, name, uid, email, password, conf, image, perfil, sn_a
         // Add the new element to our form.
         form.appendChild(p);
         p.name = "p";
-        p.id = 'p';
+        p.id = "p";
         p.type = "hidden";
         p.value = hex_sha512(password.value);
 
@@ -284,4 +284,14 @@ function setManagerArena(id_user){
             $("#resultado").html(response);
         }
     });
+}
+
+/**
+ * Function Validate Electronic Mail.
+ * @param email
+ * @returns {boolean}
+ */
+function validaEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }

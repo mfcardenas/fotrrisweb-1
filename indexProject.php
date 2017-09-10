@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <meta charset="UTF-8">
         <title>FoTRRIS Projects </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />
@@ -103,7 +103,7 @@
                                                     <?php echo _("Pads"); ?>
                                                 </th>
                                                 <th class="dynatable-head" style="text-align: center;" data-dynatable-column="num_pad">
-                                                    <?php echo _("Palabras Claves"); ?>
+                                                    <?php echo _("Keywords"); ?>
                                                 </th>
                                                 <th class="dynatable-head" style="text-align: center;" data-dynatable-column="num_keywords">
                                                     <?php echo _("Users"); ?>
@@ -149,6 +149,7 @@
                                                                 echo $combo->getStatus($project->getSnActive(), true);
                                                                 ?>
                                                             </select>
+                                                            <span style="display: none;"><?php echo $project->getSnActive(); ?></span>
                                                         </td>
                                                         <td>
                                                             <?php if ($project->getSnActive() == 'S') {

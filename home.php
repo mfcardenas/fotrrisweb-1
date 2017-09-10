@@ -1,7 +1,8 @@
 <?php
+    require_once 'includes/translate.php';
     require_once 'includes/functions.php';
     require_once 'includes/combo.php';
-    require_once 'includes/translate.php';
+
 
     sec_session_start();
 
@@ -88,7 +89,7 @@
                 <div class="container mtb">
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <h3><?php echo _("Welcome to the Project"); ?> FoTRRIS <?php echo $_SESSION['lang'] ?></h3>
+                            <h3><?php echo _("Welcome to the Project"); ?> FoTRRIS</h3>
                             <p><label >
                                     <?php echo _("Working on"); ?>:&nbsp;
                                     <!--select id="id_project" name="id_project"-->

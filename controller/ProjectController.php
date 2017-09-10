@@ -22,8 +22,6 @@ class ProjectController extends ControllerBase{
      */
     public function index($param){
         
-        //Creamos el objeto usuario
-        $gm = new GlobalModel();
         $class = "Project";
         $pads = [];
         $keywordsA = [];
@@ -32,10 +30,10 @@ class ProjectController extends ControllerBase{
         $type =  $parameter[3];
 
         if ($type == 3){
-            $allproject = $gm->getListProject($class, true, $id_user);
+            $allproject = $this->getGm()->getListProject($class, true, $id_user);
         } else {
         //Conseguimos todos los projectos
-            $allproject = $gm->getListProject($class, false);
+            $allproject = $this->getGm()->getListProject($class, false);
         }
 
         if (is_bool($allproject) || $allproject == null || $allproject == '' || count($allproject) == 0){
@@ -48,11 +46,11 @@ class ProjectController extends ControllerBase{
             "combo" => $this->getCombo(),
             "pads" => $pads,
             "keywords" => $keywordsA,
+            "gm" => $this->getGm()
         ));
     }
 
     public function show($param){
-        $gm = new GlobalModel();
         $class = "Project";
         $pads = [];
         $keywordsA = [];
@@ -61,10 +59,10 @@ class ProjectController extends ControllerBase{
         $type =  $parameter[3];
 
         if ($type == 3){
-            $allproject = $gm->getListProject($class, true, $id_user);
+            $allproject = $this->getGm()->getListProject($class, true, $id_user);
         } else {
             //Conseguimos todos los projectos
-            $allproject = $gm->getListProject($class, false);
+            $allproject = $this->getGm()->getListProject($class, false);
         }
 
         if (is_bool($allproject) || $allproject == null || $allproject == '' || count($allproject) == 0){
@@ -77,6 +75,7 @@ class ProjectController extends ControllerBase{
             "combo" => $this->getCombo(),
             "pads" => $pads,
             "keywords" => $keywordsA,
+            "gm" => $this->getGm()
         ));
     }
 
@@ -95,7 +94,7 @@ class ProjectController extends ControllerBase{
         if (isset($_POST['name'], $_POST['id_arena'], $_POST['ubication'], $_POST['num_pad'])) {
 
             #PROJECT --> DATA
-            $userapp   = filter_input(INPUT_POST, 'userapp', FILTER_SANITIZE_STRING);
+            $userapp    = filter_input(INPUT_POST, 'userapp', FILTER_SANITIZE_STRING);
             $name       = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
             $id_arena   = filter_input(INPUT_POST, 'id_arena', FILTER_SANITIZE_STRING);
             $ubication  = filter_input(INPUT_POST, 'ubication', FILTER_SANITIZE_STRING);
@@ -104,7 +103,9 @@ class ProjectController extends ControllerBase{
             $date_to    = filter_input(INPUT_POST, 'date_to', FILTER_SANITIZE_STRING);
             $number_pad = filter_input(INPUT_POST, 'num_pad', FILTER_SANITIZE_STRING);
             $sn_active  = filter_input(INPUT_POST, 'sn_active', FILTER_SANITIZE_STRING);
-            $images = filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING);
+            $sn_abstract    = filter_input(INPUT_POST, 'abstract', FILTER_SANITIZE_STRING);
+            $sn_repository  = filter_input(INPUT_POST, 'repository', FILTER_SANITIZE_STRING);
+            $images         = filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING);
 
             if ($images == ''){
                 $images = "img_project_01.png";
@@ -118,6 +119,8 @@ class ProjectController extends ControllerBase{
             $project->setDateFrom($date_from);
             $project->setDateTo($date_to);
             $project->setSnActive($sn_active);
+            $project->setSnAbstract($sn_abstract);
+            $project->setSnRepository($sn_repository);
             $project->setUserCreate($userapp);
             $project->setImages($images);
 
@@ -136,21 +139,41 @@ class ProjectController extends ControllerBase{
             }
 
             #PAD --> DATA
+            $i = 1;
             $desc_p1    = filter_input(INPUT_POST, 'desc_p1', FILTER_SANITIZE_STRING);
             $name_p1    = filter_input(INPUT_POST, 'name_p1', FILTER_SANITIZE_STRING);
-
             $project->setNamePad1($name_p1);
             $project->setDescPad1($desc_p1);
 
-            $i = 1;
+            $padAb = new Pad();
+            $padAb->setPadNameView("Public Abstract");
+            $padAb->setFilenameConfig($filename_setting);
+            $padAb->setSnActive($sn_abstract);
+            $padAb->setUserCreate($userapp);
+            $padAb->setDescription("Abstract Project");
+            $padAb->setType(PAD_ABS);
+            $padAb->setId(90);
+            array_push($pads, $padAb);
+
+            $padRe = new Pad();
+            $padRe->setPadNameView("Repository");
+            $padRe->setFilenameConfig($filename_setting);
+            $padRe->setSnActive($sn_repository);
+            $padRe->setUserCreate($userapp);
+            $padRe->setDescription("Repository Project");
+            $padRe->setType(PAD_REP);
+            $padRe->setId(91);
+            array_push($pads, $padRe);
+
             $pad1 = new Pad();
             $pad1->setPadNameView($name_p1);
             $pad1->setFilenameConfig($filename_setting);
             $pad1->setSnActive($sn_active);
             $pad1->setUserCreate($userapp);
             $pad1->setDescription($desc_p1);
+            $pad1->setType(PAD_CON);
             $pad1->setId($i++);
-            $pads = [];
+
             array_push($pads, $pad1);
 
             if ($date_to == "") {
@@ -173,6 +196,7 @@ class ProjectController extends ControllerBase{
                 $pad2->setSnActive($sn_active);
                 $pad2->setUserCreate($userapp);
                 $pad2->setDescription($desc_p2);
+                $pad2->setType(PAD_CON);
                 $pad2->setId($i++);
                 array_push($pads, $pad2);
             }
@@ -191,6 +215,7 @@ class ProjectController extends ControllerBase{
                 $pad3->setSnActive($sn_active);
                 $pad3->setUserCreate($userapp);
                 $pad3->setDescription($desc_p3);
+                $pad3->setType(PAD_CON);
                 $pad3->setId($i++);
                 array_push($pads, $pad3);
             }
@@ -209,6 +234,7 @@ class ProjectController extends ControllerBase{
                 $pad4->setSnActive($sn_active);
                 $pad4->setUserCreate($userapp);
                 $pad4->setDescription($desc_p4);
+                $pad4->setType(PAD_CON);
                 $pad4->setId($i++);
                 array_push($pads, $pad4);
             }
@@ -227,6 +253,7 @@ class ProjectController extends ControllerBase{
                 $pad5->setSnActive($sn_active);
                 $pad5->setUserCreate($userapp);
                 $pad5->setDescription($desc_p5);
+                $pad5->setType(PAD_CON);
                 $pad5->setId($i++);
                 array_push($pads, $pad5);
             }
@@ -245,6 +272,7 @@ class ProjectController extends ControllerBase{
                 $pad6->setSnActive($sn_active);
                 $pad6->setUserCreate($userapp);
                 $pad6->setDescription($desc_p6);
+                $pad6->setType(PAD_CON);
                 $pad6->setId($i++);
                 array_push($pads, $pad6);
             }
@@ -263,6 +291,7 @@ class ProjectController extends ControllerBase{
                 $pad7->setSnActive($sn_active);
                 $pad7->setUserCreate($userapp);
                 $pad7->setDescription($desc_p7);
+                $pad7->setType(PAD_CON);
                 $pad7->setId($i++);
                 array_push($pads, $pad7);
             }
@@ -281,6 +310,7 @@ class ProjectController extends ControllerBase{
                 $pad8->setSnActive($sn_active);
                 $pad8->setUserCreate($userapp);
                 $pad8->setDescription($desc_p8);
+                $pad8->setType(PAD_CON);
                 $pad8->setId($i++);
                 array_push($pads, $pad8);
             }
@@ -288,8 +318,8 @@ class ProjectController extends ControllerBase{
             if ($number_pad > 8) {
                 $desc_p9 = filter_input(INPUT_POST, 'desc_p9', FILTER_SANITIZE_STRING);
                 $name_p9 = filter_input(INPUT_POST, 'name_p9', FILTER_SANITIZE_STRING);
-                $project->setNamePad8($name_p9);
-                $project->setDescPad8($desc_p9);
+                $project->setNamePad9($name_p9);
+                $project->setDescPad9($desc_p9);
                 $arrayDesc[9] = $desc_p9;
                 $arrayName[9] = $name_p9;
 
@@ -299,6 +329,7 @@ class ProjectController extends ControllerBase{
                 $pad9->setSnActive($sn_active);
                 $pad9->setUserCreate($userapp);
                 $pad9->setDescription($desc_p9);
+                $pad9->setType(PAD_CON);
                 $pad9->setId($i++);
                 array_push($pads, $pad9);
             }
@@ -306,8 +337,8 @@ class ProjectController extends ControllerBase{
             if ($number_pad > 9) {
                 $desc_p10 = filter_input(INPUT_POST, 'desc_p10', FILTER_SANITIZE_STRING);
                 $name_p10 = filter_input(INPUT_POST, 'name_p10', FILTER_SANITIZE_STRING);
-                $project->setNamePad8($name_p10);
-                $project->setDescPad8($desc_p10);
+                $project->setNamePad10($name_p10);
+                $project->setDescPad10($desc_p10);
                 $arrayDesc[10] = $desc_p10;
                 $arrayName[10] = $name_p10;
 
@@ -317,13 +348,108 @@ class ProjectController extends ControllerBase{
                 $pad10->setSnActive($sn_active);
                 $pad10->setUserCreate($userapp);
                 $pad10->setDescription($desc_p10);
+                $pad10->setType(PAD_CON);
                 $pad10->setId($i++);
                 array_push($pads, $pad10);
             }
 
+            if ($number_pad > 10) {
+                $desc_p11 = filter_input(INPUT_POST, 'desc_p11', FILTER_SANITIZE_STRING);
+                $name_p11 = filter_input(INPUT_POST, 'name_p11', FILTER_SANITIZE_STRING);
+                $project->setNamePad11($name_p11);
+                $project->setDescPad11($desc_p11);
+                $arrayDesc[11] = $desc_p11;
+                $arrayName[11] = $name_p11;
+
+                $pad11 = new Pad();
+                $pad11->setPadNameView($name_p11);
+                $pad11->setFilenameConfig($filename_setting);
+                $pad11->setSnActive($sn_active);
+                $pad11->setUserCreate($userapp);
+                $pad11->setDescription($desc_p11);
+                $pad11->setType(PAD_CON);
+                $pad11->setId($i++);
+                array_push($pads, $pad11);
+            }
+
+            if ($number_pad > 11) {
+                $desc_p12 = filter_input(INPUT_POST, 'desc_p12', FILTER_SANITIZE_STRING);
+                $name_p12 = filter_input(INPUT_POST, 'name_p12', FILTER_SANITIZE_STRING);
+                $project->setNamePad12($name_p12);
+                $project->setDescPad12($desc_p12);
+                $arrayDesc[12] = $desc_p12;
+                $arrayName[12] = $name_p12;
+
+                $pad12 = new Pad();
+                $pad12->setPadNameView($name_p12);
+                $pad12->setFilenameConfig($filename_setting);
+                $pad12->setSnActive($sn_active);
+                $pad12->setUserCreate($userapp);
+                $pad12->setDescription($desc_p12);
+                $pad12->setType(PAD_CON);
+                $pad12->setId($i++);
+                array_push($pads, $pad12);
+            }
+
+            if ($number_pad > 12) {
+                $desc_p13 = filter_input(INPUT_POST, 'desc_p13', FILTER_SANITIZE_STRING);
+                $name_p13 = filter_input(INPUT_POST, 'name_p13', FILTER_SANITIZE_STRING);
+                $project->setNamePad13($name_p13);
+                $project->setDescPad13($desc_p13);
+                $arrayDesc[13] = $desc_p13;
+                $arrayName[13] = $name_p13;
+
+                $pad13 = new Pad();
+                $pad13->setPadNameView($name_p13);
+                $pad13->setFilenameConfig($filename_setting);
+                $pad13->setSnActive($sn_active);
+                $pad13->setUserCreate($userapp);
+                $pad13->setDescription($desc_p13);
+                $pad13->setType(PAD_CON);
+                $pad13->setId($i++);
+                array_push($pads, $pad13);
+            }
+
+            if ($number_pad > 13) {
+                $desc_p14 = filter_input(INPUT_POST, 'desc_p14', FILTER_SANITIZE_STRING);
+                $name_p14 = filter_input(INPUT_POST, 'name_p14', FILTER_SANITIZE_STRING);
+                $project->setNamePad14($name_p14);
+                $project->setDescPad14($desc_p14);
+                $arrayDesc[14] = $desc_p14;
+                $arrayName[14] = $name_p14;
+
+                $pad14 = new Pad();
+                $pad14->setPadNameView($name_p14);
+                $pad14->setFilenameConfig($filename_setting);
+                $pad14->setSnActive($sn_active);
+                $pad14->setUserCreate($userapp);
+                $pad14->setDescription($desc_p14);
+                $pad14->setType(PAD_CON);
+                $pad14->setId($i++);
+                array_push($pads, $pad14);
+            }
+
+            if ($number_pad > 15) {
+                $desc_p15 = filter_input(INPUT_POST, 'desc_p15', FILTER_SANITIZE_STRING);
+                $name_p15 = filter_input(INPUT_POST, 'name_p15', FILTER_SANITIZE_STRING);
+                $project->setNamePad15($name_p15);
+                $project->setDescPad15($desc_p15);
+                $arrayDesc[15] = $desc_p15;
+                $arrayName[15] = $name_p15;
+
+                $pad15 = new Pad();
+                $pad15->setPadNameView($name_p15);
+                $pad15->setFilenameConfig($filename_setting);
+                $pad15->setSnActive($sn_active);
+                $pad15->setUserCreate($userapp);
+                $pad15->setDescription($desc_p15);
+                $pad15->setType(PAD_CON);
+                $pad15->setId($i++);
+                array_push($pads, $pad15);
+            }
+
             if (empty($error_msg)) {
-                $pm = new GlobalModel();
-                $result = $pm->createProject($project, $pads, $keywordsA);
+                $result = $this->getGm()->createProject($project, $pads, $keywordsA);
             }
 
         } else {
@@ -371,6 +497,8 @@ class ProjectController extends ControllerBase{
             $date_to    = filter_input(INPUT_POST, 'date_to', FILTER_SANITIZE_STRING);
             $number_pad = filter_input(INPUT_POST, 'num_pad', FILTER_SANITIZE_STRING);
             $sn_active  = filter_input(INPUT_POST, 'sn_active', FILTER_SANITIZE_STRING);
+            $sn_abstract    = filter_input(INPUT_POST, 'abstract', FILTER_SANITIZE_STRING);
+            $sn_repository  = filter_input(INPUT_POST, 'repository', FILTER_SANITIZE_STRING);
             $images  = filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING);
 
             $project->setId($id);
@@ -382,6 +510,8 @@ class ProjectController extends ControllerBase{
             $project->setDateFrom($date_from);
             $project->setDateTo($date_to);
             $project->setSnActive($sn_active);
+            $project->setSnAbstract($sn_abstract);
+            $project->setSnRepository($sn_repository);
             $project->setUserCreate($userapp);
             $project->setImages($images);
      
@@ -408,15 +538,37 @@ class ProjectController extends ControllerBase{
             $project->setNamePad1($name_p1);
             $project->setDescPad1($desc_p1);
 
+            $padAb = new Pad();
+            $padAb->setPadNameView("Public Abstract");
+            $padAb->setFilenameConfig($filename_setting);
+            $padAb->setSnActive($sn_abstract);
+            $padAb->setUserCreate($userapp);
+            $padAb->setDescription("Abstract Project");
+            $padAb->setType(PAD_ABS);
+            $padAb->setIdProject($id);
+            $padAb->setId(90);
+            array_push($pads, $padAb);
+
+            $padRe = new Pad();
+            $padRe->setPadNameView("Repository");
+            $padRe->setFilenameConfig($filename_setting);
+            $padRe->setSnActive($sn_repository);
+            $padRe->setUserCreate($userapp);
+            $padRe->setDescription("Repository Project");
+            $padRe->setType(PAD_REP);
+            $padRe->setIdProject($id);
+            $padRe->setId(91);
+            array_push($pads, $padRe);
+
             $pad1 = new Pad();
             $pad1->setPadNameView($name_p1);
             $pad1->setFilenameConfig($filename_setting);
             $pad1->setSnActive($sn_active);
             $pad1->setUserCreate($userapp);
             $pad1->setDescription($desc_p1);
+            $pad1->setType(PAD_CON);
             $pad1->setIdProject($id);
             $pad1->setId($i++);
-
             array_push($pads, $pad1);
 
             if ($date_to == "") {
@@ -439,6 +591,7 @@ class ProjectController extends ControllerBase{
                 $pad2->setSnActive($sn_active);
                 $pad2->setUserCreate($userapp);
                 $pad2->setDescription($desc_p2);
+                $pad2->setType(PAD_CON);
                 $pad2->setIdProject($id);
                 $pad2->setId($i++);
                 array_push($pads, $pad2);
@@ -458,6 +611,7 @@ class ProjectController extends ControllerBase{
                 $pad3->setSnActive($sn_active);
                 $pad3->setUserCreate($userapp);
                 $pad3->setDescription($desc_p3);
+                $pad3->setType(PAD_CON);
                 $pad3->setIdProject($id);
                 $pad3->setId($i++);
                 array_push($pads, $pad3);
@@ -477,6 +631,7 @@ class ProjectController extends ControllerBase{
                 $pad4->setSnActive($sn_active);
                 $pad4->setUserCreate($userapp);
                 $pad4->setDescription($desc_p4);
+                $pad4->setType(PAD_CON);
                 $pad4->setIdProject($id);
                 $pad4->setId($i++);
                 array_push($pads, $pad4);
@@ -496,6 +651,7 @@ class ProjectController extends ControllerBase{
                 $pad5->setSnActive($sn_active);
                 $pad5->setUserCreate($userapp);
                 $pad5->setDescription($desc_p5);
+                $pad5->setType(PAD_CON);
                 $pad5->setIdProject($id);
                 $pad5->setId($i++);
                 array_push($pads, $pad5);
@@ -515,6 +671,7 @@ class ProjectController extends ControllerBase{
                 $pad6->setSnActive($sn_active);
                 $pad6->setUserCreate($userapp);
                 $pad6->setDescription($desc_p6);
+                $pad6->setType(PAD_CON);
                 $pad6->setIdProject($id);
                 $pad6->setId($i++);
                 array_push($pads, $pad6);
@@ -534,6 +691,7 @@ class ProjectController extends ControllerBase{
                 $pad7->setSnActive($sn_active);
                 $pad7->setUserCreate($userapp);
                 $pad7->setDescription($desc_p7);
+                $pad7->setType(PAD_CON);
                 $pad7->setIdProject($id);
                 $pad7->setId($i++);
                 array_push($pads, $pad7);
@@ -553,6 +711,7 @@ class ProjectController extends ControllerBase{
                 $pad8->setSnActive($sn_active);
                 $pad8->setUserCreate($userapp);
                 $pad8->setDescription($desc_p8);
+                $pad8->setType(PAD_CON);
                 $pad8->setIdProject($id);
                 $pad8->setId($i++);
                 array_push($pads, $pad8);
@@ -572,6 +731,7 @@ class ProjectController extends ControllerBase{
                 $pad9->setSnActive($sn_active);
                 $pad9->setUserCreate($userapp);
                 $pad9->setDescription($desc_p9);
+                $pad9->setType(PAD_CON);
                 $pad9->setIdProject($id);
                 $pad9->setId($i++);
                 array_push($pads, $pad9);
@@ -591,60 +751,122 @@ class ProjectController extends ControllerBase{
                 $pad10->setSnActive($sn_active);
                 $pad10->setUserCreate($userapp);
                 $pad10->setDescription($desc_p10);
+                $pad10->setType(PAD_CON);
                 $pad10->setIdProject($id);
                 $pad10->setId($i++);
                 array_push($pads, $pad10);
             }
 
-//            $upfile = "true";
-//            $msg = "";
-//            if (!empty($_FILES['file_img_project']["size"])) {
-//                $file_size = $_FILES['file_img_project']["size"];
-//
-//                $target_file = "img-project/".basename($_FILES["file_img_project"]["name"]);
-//                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-//
-//                if ($file_size > 200000) {
-//                    $msg = $msg."El archivo es mayor que 200KB, debes reduzcirlo antes de subirlo<BR>";
-//                    $upfile = "false";
-//                }
-//
-//                $check = getimagesize($_FILES["file_img_project"]["tmp_name"]);
-//                if($check == false) {
-//                    $msg = $msg." Tu archivo tiene que ser JPG, GIF o PNG. Otros archivos no son permitidos<BR>";
-//                    $upfile = "false";
-//                }
-//
-//                $file_name = "img-project-" . $project->getId() .".". $imageFileType;
-//
-//                if($upfile == "true"){
-//                    $add = DOCROOT.'img-project/' . $file_name;
-//                    echo $add."\n";
-//                    if(move_uploaded_file($_FILES["file_img_project"]["tmp_name"], $add)){
-//                        $project->setImages($file_name);
-//                        echo "Ha sido subido satisfactoriamente";
-//                    }else{
-//                        $project->setImages("img_project_sn.png");
-//                        echo "Error al subir el archivo";
-//                    }
-//                }else{
-//                    echo $msg;
-//                }
-//            }
+            if ($number_pad > 10) {
+                $desc_p11 = filter_input(INPUT_POST, 'desc_p11', FILTER_SANITIZE_STRING);
+                $name_p11 = filter_input(INPUT_POST, 'name_p11', FILTER_SANITIZE_STRING);
+                $project->setNamePad11($name_p11);
+                $project->setDescPad11($desc_p11);
+                $arrayDesc[11] = $desc_p11;
+                $arrayName[11] = $name_p11;
+
+                $pad11 = new Pad();
+                $pad11->setPadNameView($name_p11);
+                $pad11->setFilenameConfig($filename_setting);
+                $pad11->setSnActive($sn_active);
+                $pad11->setUserCreate($userapp);
+                $pad11->setDescription($desc_p11);
+                $pad11->setType(PAD_CON);
+                $pad11->setId($i++);
+                array_push($pads, $pad11);
+            }
+
+            if ($number_pad > 11) {
+                $desc_p12 = filter_input(INPUT_POST, 'desc_p12', FILTER_SANITIZE_STRING);
+                $name_p12 = filter_input(INPUT_POST, 'name_p12', FILTER_SANITIZE_STRING);
+                $project->setNamePad12($name_p12);
+                $project->setDescPad12($desc_p12);
+                $arrayDesc[12] = $desc_p12;
+                $arrayName[12] = $name_p12;
+
+                $pad12 = new Pad();
+                $pad12->setPadNameView($name_p12);
+                $pad12->setFilenameConfig($filename_setting);
+                $pad12->setSnActive($sn_active);
+                $pad12->setUserCreate($userapp);
+                $pad12->setDescription($desc_p12);
+                $pad12->setType(PAD_CON);
+                $pad12->setId($i++);
+                array_push($pads, $pad12);
+            }
+
+            if ($number_pad > 12) {
+                $desc_p13 = filter_input(INPUT_POST, 'desc_p13', FILTER_SANITIZE_STRING);
+                $name_p13 = filter_input(INPUT_POST, 'name_p13', FILTER_SANITIZE_STRING);
+                $project->setNamePad13($name_p13);
+                $project->setDescPad13($desc_p13);
+                $arrayDesc[13] = $desc_p13;
+                $arrayName[13] = $name_p13;
+
+                $pad13 = new Pad();
+                $pad13->setPadNameView($name_p13);
+                $pad13->setFilenameConfig($filename_setting);
+                $pad13->setSnActive($sn_active);
+                $pad13->setUserCreate($userapp);
+                $pad13->setDescription($desc_p13);
+                $pad13->setType(PAD_CON);
+                $pad13->setId($i++);
+                array_push($pads, $pad13);
+            }
+
+            if ($number_pad > 13) {
+                $desc_p14 = filter_input(INPUT_POST, 'desc_p14', FILTER_SANITIZE_STRING);
+                $name_p14 = filter_input(INPUT_POST, 'name_p14', FILTER_SANITIZE_STRING);
+                $project->setNamePad14($name_p14);
+                $project->setDescPad14($desc_p14);
+                $arrayDesc[14] = $desc_p14;
+                $arrayName[14] = $name_p14;
+
+                $pad14 = new Pad();
+                $pad14->setPadNameView($name_p14);
+                $pad14->setFilenameConfig($filename_setting);
+                $pad14->setSnActive($sn_active);
+                $pad14->setUserCreate($userapp);
+                $pad14->setDescription($desc_p14);
+                $pad14->setType(PAD_CON);
+                $pad14->setId($i++);
+                array_push($pads, $pad14);
+            }
+
+            if ($number_pad > 15) {
+                $desc_p15 = filter_input(INPUT_POST, 'desc_p15', FILTER_SANITIZE_STRING);
+                $name_p15 = filter_input(INPUT_POST, 'name_p15', FILTER_SANITIZE_STRING);
+                $project->setNamePad15($name_p15);
+                $project->setDescPad15($desc_p15);
+                $arrayDesc[15] = $desc_p15;
+                $arrayName[15] = $name_p15;
+
+                $pad15 = new Pad();
+                $pad15->setPadNameView($name_p15);
+                $pad15->setFilenameConfig($filename_setting);
+                $pad15->setSnActive($sn_active);
+                $pad15->setUserCreate($userapp);
+                $pad15->setDescription($desc_p15);
+                $pad15->setType(PAD_CON);
+                $pad15->setId($i++);
+                array_push($pads, $pad15);
+            }
 
             if (empty($error_msg)) {
-                $pm = new GlobalModel();
-                $result = $pm->updateProject($project, $pads, $keywordsA);
+                echo "UPDATE PROJECT PAD" . "\n";
+                $result = $this->getGm()->updateProject($project, $pads, $keywordsA);
+                echo $result . "\n";
             }
 
         } else {
-            $keyerrors[] = "999";
+            array_push($keyerrors, 999);
         }
 
         if ($result == "100") {
             $param = "id_".$_POST['id_user_log']."_type_".$_POST['type'];
             $this->redirect("project", "index", $param);
         } else {
+            array_push($keyerrors, $result);
             $this->view("create", $this->entity , array(
                 "keys" => $keyerrors,
                 "project" => $project,
@@ -680,8 +902,7 @@ class ProjectController extends ControllerBase{
         if (isset($_GET["id_project"])) {
             $id=(int)$_GET["id_project"];
             $p = new Project();
-            $gm = new GlobalModel();
-            $ks = $gm->getKeywordsProj($id, $class_keywords);
+            $ks = $this->getGm()->getKeywordsProj($id, $class_keywords);
             if (!is_array($ks)){
                 $ks = array();
             }
@@ -692,10 +913,12 @@ class ProjectController extends ControllerBase{
 
             if (count($gps) > 0){
                 foreach ($gps as $gptmp){
-                    $param_name = "setNamePad".$gptmp->getId();
-                    $param_desc = "setDescPad".$gptmp->getId();
-                    $proj->$param_name($gptmp->getPadNameView());
-                    $proj->$param_desc($gptmp->getDescription());
+                    if ($gptmp->getType() == 'CON'){
+                        $param_name = "setNamePad".$gptmp->getId();
+                        $param_desc = "setDescPad".$gptmp->getId();
+                        $proj->$param_name($gptmp->getPadNameView());
+                        $proj->$param_desc($gptmp->getDescription());
+                    }
                 }
             }
             $this->view("create", $this->entity, array(
@@ -759,5 +982,5 @@ class ProjectController extends ControllerBase{
 
     }
 
-    }
+}
 

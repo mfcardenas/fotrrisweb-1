@@ -49,7 +49,7 @@ if (isset($_POST['id_project'], $_POST['id_user'], $_POST['date_from'], $_POST['
                     exit();
                 }
             }
-            header('Location: ../assigne_projects_user.php?key=100&type=NS');
+            header('Location: /assigne_projects_user.php?key=100&type=NS');
         } catch (Exception $e) {
             trigger_error($e->getMessage(), E_USER_ERROR);
         }

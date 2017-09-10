@@ -20,6 +20,7 @@ class Pad extends EntityBase
     private $user_modif;
     private $date_create;
     private $date_modif;
+    private $type;
 
     /**
      * Constructor.
@@ -216,14 +217,30 @@ class Pad extends EntityBase
     }
 
     /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @return bool|mysqli_result
      */
     public function save(){
         $key = "";
         try {
-            if ($insert_stmt = $this->db()->prepare("INSERT INTO group_pad (pad_name, filename_config, sn_active, date_create, user_create, id_project, pad_name_view, description) VALUES (?, ?, ?, sysdate(), ?, ?, ?, ?)")) {
+            if ($insert_stmt = $this->db()->prepare("INSERT INTO group_pad (pad_name, filename_config, sn_active, type, date_create, user_create, id_project, pad_name_view, description) VALUES (?, ?, ?, ?, sysdate(), ?, ?, ?, ?)")) {
                 $null = NULL;
-                $insert_stmt->bind_param('ssssiss', $this->pad_name, $this->filename_config, $this->sn_active, $this->user_create, $this->id_project, $this->pad_name_view, $this->description);
+                $insert_stmt->bind_param('sssssiss', $this->pad_name, $this->filename_config, $this->sn_active, $this->type, $this->user_create, $this->id_project, $this->pad_name_view, $this->description);
                 if (!$insert_stmt->execute()) {
                     $key = "901";
                 }else{
@@ -233,7 +250,7 @@ class Pad extends EntityBase
                 $key = $this->db()->error;//"908";
             }
         } catch (Exception $e) {
-            header('Location: ../error.php?err=' . $e->getMessage() . "\n");
+            header('Location: /error.php?err=' . $e->getMessage() . "\n");
         }
         return $key;
     }

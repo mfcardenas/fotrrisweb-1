@@ -44,7 +44,7 @@ $ge = set_error_handler("gestErrorNotifications");
 
 
 function getNotification($key, $type) {
-
+    $class = "my-notify-info";
 
     if ($type == 'NS') {
         $class = "my-notify-success";
@@ -86,13 +86,19 @@ function getMsgError($key) {
         502 => "Invalid password configuration",
         503 => "A user with this email address already exists",
         504 => "The user and password do not match an active account",
+        505 => "It is not possible to update the user's password. Failed to encrypt the password.",
         607 => "Could not save picture",
         608 => "Not allowed image, the maximum allowed size is 1 Megabyte",
         710 => "Coult not save project",
         711 => "Error traying save data of project",
         720 => "Coult not save keyword",
         721 => "Coult not save keyword project relations",
-        730 => "Coult not save Pad"
+        730 => "Coult not save Pad",
+        735 => "The reCAPTCHA is incorrect, try again.",
+        739 => "Email invalidad for reset password",
+        740 => "Not found email in FoTRRIS",
+        741 => "It is not possible to send the new password. Contact the FoTRRIS WebMaster",
+        742 => "The new password will be sent to your email. Wait a few minutes."
         
     );
 

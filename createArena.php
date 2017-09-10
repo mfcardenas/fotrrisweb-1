@@ -1,8 +1,5 @@
 <?php
-
-    //require_once 'includes/register.inc.php';
     require_once 'includes/functions.php';
-    //require_once 'includes/combo.php';
 
     sec_session_start();
 
@@ -15,6 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>FoTRRIS Hubs </title>
         <?php include("section/sincl_html.php"); ?>
         <link rel="stylesheet" href="css/util.css" />

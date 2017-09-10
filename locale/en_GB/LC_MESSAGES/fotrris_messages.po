@@ -3,19 +3,36 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: info@phpgang.com <info@phpgang.com>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: en_US\n"
 
 # WORD HEADER
 # ###################################################################
 msgid "Language"
 msgstr "Language"
+
+msgid "Languages"
+msgstr "Lenguages"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "English"
+msgstr "English"
+
+msgid "Italian"
+msgstr "Italian"
+
+msgid "Hungarian"
+msgstr "Hungarian"
+
+msgid "German"
+msgstr "German"
 
 msgid "Home"
 msgstr "Home"
@@ -47,17 +64,17 @@ msgstr "Assign Projects"
 msgid "My Projects"
 msgstr "My Projects"
 
-msgid "Signed in as"
-msgstr "Signed in as"
+msgid "Login as"
+msgstr "Login as"
 
 msgid "Your profile"
 msgstr "Your profile"
 
-msgid "Sing out"
-msgstr "Sing out"
+msgid "Logout"
+msgstr "Logout"
 
-msgid "Sing in/up"
-msgstr "Sing in/up"
+msgid "Login/Register"
+msgstr "Login/Register"
 
 # WORD BODY WELLCOME
 # ###################################################################
@@ -78,19 +95,43 @@ msgstr "Responsible Research and Innovation (RRI)"
 msgid "Please Login"
 msgstr "Please Login"
 
+# WORD BODY WELLCOME  NEW LITERAL
+# ###################################################################
+# word 1
+msgid "Welcome to the FoTRRIS web Platform"
+msgstr "Welcome to the FoTRRIS web Platform"
+
+msgid "Platform for co-creation of Project ideas"
+msgstr "Platform for co-creation of RRI Project ideas"
+
+msgid "Fostering Transition into Responsible Research and Innovation"
+msgstr "Fostering Transition into Responsible Research and Innovation"
+
+msgid "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+msgstr "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+
+msgid "More information at"
+msgstr "More information at"
+
+msgid "Usage Guidelines"
+msgstr "Usage Guidelines"
+
+msgid "General Information of web Platform"
+msgstr "General Information of web Platform"
+
 # SHOW PROJECT
 # ####################################################################
 msgid "Description"
-msgstr "Descripción"
+msgstr "Description"
 
 msgid "Project Description"
-msgstr "Descripción del Proyecto"
+msgstr "Project Description"
 
 msgid "Close"
-msgstr "Cerrar"
+msgstr "Close"
 
 msgid "Join"
-msgstr "Unirse"
+msgstr "Join"
 
 msgid "Keywords"
 msgstr "Keywords"
@@ -107,6 +148,210 @@ msgstr "List of all projects"
 msgid "list"
 msgstr "list"
 
+# Sing in/up
+#
+# #######################
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Remember Me"
+msgstr "Remember Me"
+
+# REGISTER
+# ###################################################################
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Email Address"
+msgstr "Email Address"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Picture?"
+msgstr "Picture?"
+
+msgid "Examine"
+msgstr "Examine"
+
+msgid "Upload a picture"
+msgstr "Upload a picture"
+
+msgid "Register Now"
+msgstr "Register Now"
+
+msgid "Passwords must be at least 6 characters long"
+msgstr "Passwords must be at least 6 characters long"
+
+msgid "Passwords must be at least 6 characters"
+msgstr "Passwords must be at least 6 characters long, must contain at least one number, one lowercase and one uppercase letter"
+
+# LOGIN
+# ###################################################################
+# password y el resto de placeholder aunq esten en register hay que meter el echo
+msgid "email"
+msgstr "email"
+
+msgid "LOG IN"
+msgstr "LOG IN"
+
+# USER
+#
+# ######################################
+# list, user, username, email, profile, create, user create, status, actions
+msgid "Name"
+msgstr "Name"
+
+msgid "Created"
+msgstr "Created"
+
+msgid "Created By"
+msgstr "Created By"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Create User"
+msgstr "Create User"
+
+msgid "Minimum of 6 characters"
+msgstr "Minimum of 6 characters"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Back"
+msgstr "Back"
+
+# PROFILE
+#
+# #############################
+msgid "Type"
+msgstr "Type"
+
+msgid "Create Profile"
+msgstr "Create Profile"
+
+# HUBS
+#
+# #############################
+msgid "Place"
+msgstr "Place"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Managers"
+msgstr "Managers"
+
+msgid "Create Hubs"
+msgstr "Create Hubs"
+
+# PROJECTS
+#
+# #############################
+msgid "Ubication"
+msgstr "Ubication"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "From"
+msgstr "From"
+
+msgid "To"
+msgstr "To"
+
+msgid "Pads"
+msgstr "Pads"
+
+msgid "Create Project"
+msgstr "Create Project"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "A project can only have most 15 pads"
+msgstr "A project can only have most 15 pads"
+
+msgid "Phase"
+msgstr "Phase"
+
+msgid "Keywords of project (separe for comma)"
+msgstr "Keywords of project (separe for comma)"
+
+msgid "Image for project"
+msgstr "Image for project"
+
+# ASSIGN PROJECTS
+#
+# #############################
+msgid "Assign User to Project"
+msgstr "Assign User to Project"
+
+msgid "Name Project"
+msgstr "Name Project"
+
+msgid "Name user"
+msgstr "Name user"
+
+msgid "Email user"
+msgstr "Email user"
+
+msgid "Hub Project"
+msgstr "Hub Project"
+
+msgid "Assign Project"
+msgstr "Assign Project"
+
+msgid "Select Project"
+msgstr "Select Project"
+
+msgid "Select User"
+msgstr "Select User"
+
+msgid "Your request is send to the project leader"
+msgstr "Thank you for your interest in this project. Your request has been sent for approval to the project manager\""
+
+# MY PROFILE
+#
+# #############################
+msgid "User Profile"
+msgstr "User Profile"
+
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+msgid "Institution"
+msgstr "Institution"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Change your picture"
+msgstr "Change your picture"
+
+msgid "Upload a picture about you..."
+msgstr "Upload a picture about you..."
+
 # WORD FOOTER
 # ###################################################################
 msgid "About"
@@ -114,9 +359,6 @@ msgstr "About"
 
 msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
 msgstr "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
-
-msgid "More information at"
-msgstr "More information at"
 
 msgid "Social Links"
 msgstr "Social Links"
@@ -126,3 +368,30 @@ msgstr "Contact"
 
 msgid "Web Master"
 msgstr "Web Master"
+
+msgid "Forgot my password"
+msgstr "Forgot my password"
+
+msgid "A temporary password will be established for your account in FoTRRIS"
+msgstr "A temporary password will be established for your account in FoTRRIS and it will be sent to your mailbox. Do you wish to continue?"
+
+msgid "Enter your email in the username field"
+msgstr "Enter your email account in the email field."
+
+msgid "Active users"
+msgstr "Active users"
+
+msgid "What's My Password?"
+msgstr "What's My Password?"
+
+msgid "If you have forgotten your password you can reset it here."
+msgstr "If you have forgotten your password you can reset it here."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Send New Password"
+msgstr "Send New Password"
+
+msgid "Your request is send to the projectleader"
+msgstr "Your request is send to the projectleader"

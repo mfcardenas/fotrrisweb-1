@@ -110,8 +110,7 @@ class PerfilController extends ControllerBase{
                 $user =  filter_input(INPUT_POST, 'userapp', FILTER_SANITIZE_STRING);
                 $perfil->setUserModif($user);
 
-                $pm = new GlobalModel();
-                $result = $pm->updatePerfil($perfil, $this->table);
+                $result = $this->getGm()->updatePerfil($perfil, $this->table);
 
             } else{
                 array_push($keyerrors, "999");

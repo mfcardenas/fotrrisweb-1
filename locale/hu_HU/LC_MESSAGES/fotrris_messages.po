@@ -1,0 +1,379 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+# WORD HEADER
+# ###################################################################
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Home"
+msgstr "Kezdőoldal"
+
+msgid "Show Projects"
+msgstr "Projekt bemutatás"
+
+# msgid_plural "You have %d messages"
+# msgstr[0] "Usted tiene %d mensaje"
+# msgstr[1] "Usted tiene %d mensajes"
+msgid "User"
+msgstr "Felhasználó"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Hubs"
+msgstr "Hubs"
+
+msgid "Projects"
+msgstr "Projektek"
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "Assign Projects"
+msgstr "Hozzárendelés a projekthez"
+
+msgid "My Projects"
+msgstr "Projektjeim"
+
+msgid "Login as"
+msgstr "Bejelentkezési név"
+
+msgid "Your profile"
+msgstr "Profilom"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "Login/Register"
+msgstr "Bejelentkezés"
+
+# WORD BODY WELLCOME
+# ###################################################################
+# word 1
+msgid "Welcome to the Project"
+msgstr "Üdvözöljük a projektben"
+
+# word 2
+msgid "Working on"
+msgstr "Feladatok"
+
+msgid "Web Platform"
+msgstr "Web felület"
+
+msgid "Responsible Research and Innovation (RRI)"
+msgstr "Felelősségteljes kutatás és Innováció"
+
+msgid "Please Login"
+msgstr "Kérjük jelentkezzen be"
+
+# WORD BODY WELLCOME  NEW LITERAL
+# ###################################################################
+# word 1
+msgid "Welcome to the FoTRRIS web Platform"
+msgstr "Welcome to the FoTRRIS web Platform"
+
+msgid "Platform for co-creation of Project ideas"
+msgstr "Platform for co-creation of RRI Project ideas"
+
+msgid "Fostering Transition into Responsible Research and Innovation"
+msgstr "Fostering Transition into Responsible Research and Innovation"
+
+msgid "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+msgstr "This project has received funding from the European Union’s Horizon 2020 Research & Innovation programme under Grant Agreement no. 665906."
+
+msgid "Usage Guidelines"
+msgstr "Usage Guidelines"
+
+msgid "General Information of web Platform"
+msgstr "General Information of web Platform"
+
+# SHOW PROJECT
+# ####################################################################
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Project Description"
+msgstr "Projekt leírás"
+
+msgid "Close"
+msgstr "Bezár"
+
+msgid "Join"
+msgstr "Csatlakozás"
+
+msgid "Keywords"
+msgstr "Kulcsszó"
+
+msgid "WebSite"
+msgstr "weboldal"
+
+msgid "List of projects associated with the Hub user"
+msgstr "Projektek listája Hub felhasználóhoz társítva"
+
+msgid "List of all projects"
+msgstr "Projektek listája"
+
+msgid "list"
+msgstr "lista"
+
+# Sing in/up
+#
+# #######################
+msgid "Login"
+msgstr "Bejelentkezés"
+
+msgid "Register"
+msgstr "Regisztráció"
+
+msgid "Remember Me"
+msgstr "Felhasználói adatok mentése"
+
+# msgid "Forgot password?"
+# msgstr "Elfelejtette a jelszavát?"
+# REGISTER
+# ###################################################################
+msgid "Full Name"
+msgstr "Név"
+
+msgid "Username"
+msgstr "Felhasználói név"
+
+msgid "Email Address"
+msgstr "Email cím"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Confirm Password"
+msgstr "Jelszó megerősítése"
+
+msgid "Picture?"
+msgstr "Kép?"
+
+msgid "Examine"
+msgstr "Vizsgál"
+
+msgid "Upload a picture"
+msgstr "Kép feltöltése"
+
+msgid "Register Now"
+msgstr "Regisztrálás"
+
+msgid "Passwords must be at least 6 characters long"
+msgstr "Jelszó, legalább 6 karakteres"
+
+msgid "Passwords must be at least 6 characters"
+msgstr "Jelszó, legalább 6 karakteres, tartalmazzon egy számot, egy nagybetűt és egy kisbetűt"
+
+# LOGIN
+# ###################################################################
+# password y el resto de placeholder aunq esten en register hay que meter el echo
+msgid "email"
+msgstr "Email cím"
+
+msgid "LOG IN"
+msgstr "Bejelentkezés"
+
+# USER
+#
+# ######################################
+# list, user, username, email, profile, create, user create, status, actions
+msgid "Name"
+msgstr "Név"
+
+msgid "Created"
+msgstr "Létrehozás"
+
+msgid "Created By"
+msgstr "Felhasználó létrehozása"
+
+msgid "Status"
+msgstr "Státusz"
+
+msgid "Actions"
+msgstr "Műveletek"
+
+msgid "Create User"
+msgstr "Felhasználó létrehozása"
+
+msgid "Minimum of 6 characters"
+msgstr "Legalább 6 karakter"
+
+msgid "Update"
+msgstr "Frissítés"
+
+msgid "Clear"
+msgstr "Töröl"
+
+msgid "Back"
+msgstr "Vissza"
+
+# PROFILE
+#
+# #############################
+msgid "Type"
+msgstr "Típus"
+
+msgid "Create Profile"
+msgstr "Profil létrehozása"
+
+# HUBS
+#
+# #############################
+msgid "Place"
+msgstr "Elhelyezkedés/Tartózkodás"
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "Managers"
+msgstr "Vezetők"
+
+msgid "Create Hubs"
+msgstr "Hub létrehozása"
+
+# PROJECTS
+#
+# #############################
+msgid "Ubication"
+msgstr "Helyszín / Helyzet"
+
+msgid "Duration"
+msgstr "Időtartam"
+
+msgid "From"
+msgstr "Ettől"
+
+msgid "To"
+msgstr "Eddig"
+
+msgid "Pads"
+msgstr "Mappa"
+
+msgid "Create Project"
+msgstr "Projekt létrehozása"
+
+msgid "Number"
+msgstr "Szám / Mennyiség"
+
+msgid "A project can only have most 15 pads"
+msgstr "A projekt legfeljebb 15 mappát tartalmazhat"
+
+msgid "Phase"
+msgstr "stádium/ szakasz"
+
+msgid "Keywords of project (separe for comma)"
+msgstr "Kulcsszavak a projektben (vesszővel elválasztva)"
+
+msgid "Image for project"
+msgstr "Projekt képei"
+
+# ASSIGN PROJECTS
+#
+# #############################
+msgid "Assign User to Project"
+msgstr "Felhasználó hozzárendelése a projekthez"
+
+msgid "Name Project"
+msgstr "Projekt megnevezés"
+
+msgid "Name user"
+msgstr "Felhasználói név"
+
+msgid "Email user"
+msgstr "Felhasználói email "
+
+msgid "Hub Project"
+msgstr "Hub projekt"
+
+msgid "Assign Project"
+msgstr "Hozzárendelés a projekthez"
+
+msgid "Select Project"
+msgstr "Projekt kiválasztása"
+
+msgid "Select User"
+msgstr "Felhasználó kiválasztása"
+
+# MY PROFILE
+#
+# #############################
+msgid "User Profile"
+msgstr "Felhasználói profil"
+
+msgid "Edit Profile"
+msgstr "Profil szerkesztés"
+
+msgid "Institution"
+msgstr "Intézmény"
+
+msgid "Location"
+msgstr "Elhelyezkedés/tartózkodás"
+
+# msgid "City"
+# msgstr "Város"
+# msgid "Country"
+# msgstr "Ország"
+msgid "New Password"
+msgstr "Új jelszó"
+
+msgid "Change your picture"
+msgstr "Fénykép módosítás"
+
+msgid "Upload a picture about you..."
+msgstr "Fénykép feltöltése"
+
+# WORD FOOTER
+# ###################################################################
+msgid "About"
+msgstr "Egyéb"
+
+msgid "is an European Research Project of the H2020 Programme, on Responsible Research and Innovation"
+msgstr "egy H2020 európai kutatási projekt a felelősségteljes kutatásról és innovációról"
+
+msgid "More information at"
+msgstr "További információ"
+
+msgid "Social Links"
+msgstr "Közösségi oldalak"
+
+msgid "Contact"
+msgstr "Elérhetőség"
+
+msgid "Web Master"
+msgstr "Rendszergazda"
+
+msgid "Forgot my password"
+msgstr "Hai dimenticato la password?"
+
+msgid "Enter your email in the username field"
+msgstr "Adja meg e-mail a felhasználónév mezőbe"
+
+msgid "Active users"
+msgstr "aktív felhasználó"
+
+msgid "What's My Password?"
+msgstr "Mi a jelszavam?"
+
+msgid "If you have forgotten your password you can reset it here."
+msgstr "Ha elfelejtette a jelszót, akkor azt törölni lehet itt."
+
+msgid "Cancel"
+msgstr "Megszünteti"
+
+msgid "Send New Password"
+msgstr "Új jelszó küldése"
+
+msgid "Your request is send to the projectleader"
+msgstr "Your request is send to the projectleader"

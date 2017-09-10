@@ -14,7 +14,7 @@ class UsuariosController extends ControllerBase{
         $allusers=$usuario->getAll();
        
         //Cargamos la vista index y le pasamos valores
-        $this->view("index",array(
+        $this->view("index","", array(
             "allusers"=>$allusers
         ));
     }

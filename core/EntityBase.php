@@ -15,6 +15,7 @@ class EntityBase{
         require_once 'connect.php';
         $this->conn = new ConnectDB();
         $this->db=$this->conn->conexion();
+        //$this->db = ConnectDB::getConn();
     }
 
     /**
@@ -33,7 +34,7 @@ class EntityBase{
         $this->class = $class;
     }
 
-    public function getConetar(){
+    public function getConectar(){
         return $this->conn;
     }
     
@@ -65,7 +66,7 @@ class EntityBase{
         $resultSet = null;
         $query=$this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
         while($row = $query->fetch_object($this->class)) {
-           $resultSet[]=$row;
+           $resultSet[] = $row;
         }
         return $resultSet;
     }
