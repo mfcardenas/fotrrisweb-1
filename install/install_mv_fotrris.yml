@@ -1,7 +1,7 @@
 php:
   build: .
   dockerfile: /etc/docker/dockerfile_php_7
-  command: bash -c "install_script.sh"
+  command: bash -c "install_script_docker_aux.sh"
   volumes:
     - ./sites:/var/www/html
     - ./etc/php:/usr/local/etc/php
